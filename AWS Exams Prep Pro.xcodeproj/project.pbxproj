@@ -10,11 +10,22 @@
 		5210930E2C69349300218BA2 /* AWS_Exams_Prep_ProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210930D2C69349300218BA2 /* AWS_Exams_Prep_ProApp.swift */; };
 		521093102C69349300218BA2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210930F2C69349300218BA2 /* ContentView.swift */; };
 		521093122C69349300218BA2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521093112C69349300218BA2 /* Item.swift */; };
-		521093142C69349400218BA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521093132C69349400218BA2 /* Assets.xcassets */; };
 		521093172C69349400218BA2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521093162C69349400218BA2 /* Preview Assets.xcassets */; };
 		521093212C69349400218BA2 /* AWS_Exams_Prep_ProTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521093202C69349400218BA2 /* AWS_Exams_Prep_ProTests.swift */; };
 		5210932B2C69349400218BA2 /* AWS_Exams_Prep_ProUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210932A2C69349400218BA2 /* AWS_Exams_Prep_ProUITests.swift */; };
 		5210932D2C69349400218BA2 /* AWS_Exams_Prep_ProUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210932C2C69349400218BA2 /* AWS_Exams_Prep_ProUITestsLaunchTests.swift */; };
+		5210933D2C6934F600218BA2 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210933C2C6934F600218BA2 /* QuizView.swift */; };
+		521093412C69462C00218BA2 /* QuizQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521093402C69462C00218BA2 /* QuizQuestions.swift */; };
+		521093442C6A4CA200218BA2 /* Confetti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521093432C6A4CA200218BA2 /* Confetti.swift */; };
+		521093462C6A4CAF00218BA2 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521093452C6A4CAF00218BA2 /* ConfettiView.swift */; };
+		524B999F2C6C2EB400BABD60 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B999E2C6C2EB400BABD60 /* LandingView.swift */; };
+		524B99A12C6D1DF900BABD60 /* QuizResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B99A02C6D1DF900BABD60 /* QuizResult.swift */; };
+		524B99A32C6D1E1400BABD60 /* QuizResultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B99A22C6D1E1400BABD60 /* QuizResultManager.swift */; };
+		524B99A52C6D1E9300BABD60 /* HistoricalResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B99A42C6D1E9300BABD60 /* HistoricalResultsView.swift */; };
+		52647E412D4C4F1E0041D589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52647E402D4C4F1E0041D589 /* Assets.xcassets */; };
+		52BD75662D6BEC3D00F24669 /* software-architect-associate-questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 52BD75652D6BEC3D00F24669 /* software-architect-associate-questions.json */; };
+		52BD75682D6C783600F24669 /* QuestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BD75672D6C783600F24669 /* QuestionLoader.swift */; };
+		52BD756A2D6C7CFF00F24669 /* cloud-practitioner-questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 52BD75692D6C7CFF00F24669 /* cloud-practitioner-questions.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,13 +50,24 @@
 		5210930D2C69349300218BA2 /* AWS_Exams_Prep_ProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWS_Exams_Prep_ProApp.swift; sourceTree = "<group>"; };
 		5210930F2C69349300218BA2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		521093112C69349300218BA2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		521093132C69349400218BA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		521093162C69349400218BA2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5210931C2C69349400218BA2 /* AWS Exams Prep ProTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AWS Exams Prep ProTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		521093202C69349400218BA2 /* AWS_Exams_Prep_ProTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWS_Exams_Prep_ProTests.swift; sourceTree = "<group>"; };
 		521093262C69349400218BA2 /* AWS Exams Prep ProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AWS Exams Prep ProUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5210932A2C69349400218BA2 /* AWS_Exams_Prep_ProUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWS_Exams_Prep_ProUITests.swift; sourceTree = "<group>"; };
 		5210932C2C69349400218BA2 /* AWS_Exams_Prep_ProUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWS_Exams_Prep_ProUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5210933C2C6934F600218BA2 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		521093402C69462C00218BA2 /* QuizQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestions.swift; sourceTree = "<group>"; };
+		521093432C6A4CA200218BA2 /* Confetti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confetti.swift; sourceTree = "<group>"; };
+		521093452C6A4CAF00218BA2 /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
+		524B999E2C6C2EB400BABD60 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
+		524B99A02C6D1DF900BABD60 /* QuizResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResult.swift; sourceTree = "<group>"; };
+		524B99A22C6D1E1400BABD60 /* QuizResultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultManager.swift; sourceTree = "<group>"; };
+		524B99A42C6D1E9300BABD60 /* HistoricalResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalResultsView.swift; sourceTree = "<group>"; };
+		52647E402D4C4F1E0041D589 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52BD75652D6BEC3D00F24669 /* software-architect-associate-questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "software-architect-associate-questions.json"; sourceTree = "<group>"; };
+		52BD75672D6C783600F24669 /* QuestionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLoader.swift; sourceTree = "<group>"; };
+		52BD75692D6C7CFF00F24669 /* cloud-practitioner-questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "cloud-practitioner-questions.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +118,14 @@
 		5210930C2C69349300218BA2 /* AWS Exams Prep Pro */ = {
 			isa = PBXGroup;
 			children = (
+				52647E402D4C4F1E0041D589 /* Assets.xcassets */,
+				521093422C6A4C8D00218BA2 /* Confetti */,
+				521093392C6934D200218BA2 /* Quizzes */,
 				5210930D2C69349300218BA2 /* AWS_Exams_Prep_ProApp.swift */,
 				5210930F2C69349300218BA2 /* ContentView.swift */,
 				521093112C69349300218BA2 /* Item.swift */,
-				521093132C69349400218BA2 /* Assets.xcassets */,
+				524B999E2C6C2EB400BABD60 /* LandingView.swift */,
+				524B99A42C6D1E9300BABD60 /* HistoricalResultsView.swift */,
 				521093152C69349400218BA2 /* Preview Content */,
 			);
 			path = "AWS Exams Prep Pro";
@@ -128,6 +154,29 @@
 				5210932C2C69349400218BA2 /* AWS_Exams_Prep_ProUITestsLaunchTests.swift */,
 			);
 			path = "AWS Exams Prep ProUITests";
+			sourceTree = "<group>";
+		};
+		521093392C6934D200218BA2 /* Quizzes */ = {
+			isa = PBXGroup;
+			children = (
+				52BD75672D6C783600F24669 /* QuestionLoader.swift */,
+				52BD75652D6BEC3D00F24669 /* software-architect-associate-questions.json */,
+				5210933C2C6934F600218BA2 /* QuizView.swift */,
+				521093402C69462C00218BA2 /* QuizQuestions.swift */,
+				524B99A02C6D1DF900BABD60 /* QuizResult.swift */,
+				524B99A22C6D1E1400BABD60 /* QuizResultManager.swift */,
+				52BD75692D6C7CFF00F24669 /* cloud-practitioner-questions.json */,
+			);
+			path = Quizzes;
+			sourceTree = "<group>";
+		};
+		521093422C6A4C8D00218BA2 /* Confetti */ = {
+			isa = PBXGroup;
+			children = (
+				521093432C6A4CA200218BA2 /* Confetti.swift */,
+				521093452C6A4CAF00218BA2 /* ConfettiView.swift */,
+			);
+			path = Confetti;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,7 +243,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					521093092C69349300218BA2 = {
 						CreatedOnToolsVersion = 15.4;
@@ -234,8 +283,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52647E412D4C4F1E0041D589 /* Assets.xcassets in Resources */,
 				521093172C69349400218BA2 /* Preview Assets.xcassets in Resources */,
-				521093142C69349400218BA2 /* Assets.xcassets in Resources */,
+				52BD75662D6BEC3D00F24669 /* software-architect-associate-questions.json in Resources */,
+				52BD756A2D6C7CFF00F24669 /* cloud-practitioner-questions.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +311,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				521093462C6A4CAF00218BA2 /* ConfettiView.swift in Sources */,
 				521093102C69349300218BA2 /* ContentView.swift in Sources */,
+				524B99A32C6D1E1400BABD60 /* QuizResultManager.swift in Sources */,
+				524B99A12C6D1DF900BABD60 /* QuizResult.swift in Sources */,
+				521093442C6A4CA200218BA2 /* Confetti.swift in Sources */,
+				524B99A52C6D1E9300BABD60 /* HistoricalResultsView.swift in Sources */,
+				5210933D2C6934F600218BA2 /* QuizView.swift in Sources */,
+				524B999F2C6C2EB400BABD60 /* LandingView.swift in Sources */,
+				52BD75682D6C783600F24669 /* QuestionLoader.swift in Sources */,
+				521093412C69462C00218BA2 /* QuizQuestions.swift in Sources */,
 				521093122C69349300218BA2 /* Item.swift in Sources */,
 				5210930E2C69349300218BA2 /* AWS_Exams_Prep_ProApp.swift in Sources */,
 			);
@@ -423,26 +483,37 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AWS Exams Prep Pro/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZKYJ6G9GJP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Certification Prep Pro for AWS";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.coffeedevs.AWS-Exams-Prep-Pro";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coffeedevs.capuccino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "AWS Cloud Practitioner Exam Prep";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -451,40 +522,50 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AWS Exams Prep Pro/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZKYJ6G9GJP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Certification Prep Pro for AWS";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.coffeedevs.AWS-Exams-Prep-Pro";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coffeedevs.capuccino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "AWS Cloud Practitioner Exam Prep";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		521093342C69349400218BA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.coffeedevs.AWS-Exams-Prep-ProTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coffeedevs.capuccino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -496,14 +577,13 @@
 		521093352C69349400218BA2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.coffeedevs.AWS-Exams-Prep-ProTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coffeedevs.capuccino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -515,12 +595,12 @@
 		521093372C69349400218BA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZKYJ6G9GJP;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.coffeedevs.AWS-Exams-Prep-ProUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coffeedevs.capuccino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -532,12 +612,12 @@
 		521093382C69349400218BA2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZKYJ6G9GJP;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.coffeedevs.AWS-Exams-Prep-ProUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coffeedevs.capuccino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

@@ -25,7 +25,9 @@ struct AWS_Exams_Prep_ProApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                LandingScreenView(quizData: QuizQuestions())
+            }
         }
         .modelContainer(sharedModelContainer)
     }
