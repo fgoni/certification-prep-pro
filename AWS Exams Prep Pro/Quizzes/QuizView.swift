@@ -12,7 +12,6 @@ struct QuizQuestion: Decodable {
 
 // MARK: - QuizView
 struct QuizView: View {
-    @ObservedObject var quizStore = QuizQuestions()
     @State private var currentQuestionIndex: Int = 0
     @State private var selectedOptions: Set<String> = [] // Updated to allow selecting multiple options
     @State private var showExplanation: Bool = false
@@ -31,10 +30,12 @@ struct QuizView: View {
     
     let questions: [QuizQuestion]
     let timeLimit: Int
+    let totalPoolSize: Int // Add parameter for total pool size
     
-    init(questions: [QuizQuestion], timeLimit: Int) {
+    init(questions: [QuizQuestion], timeLimit: Int, totalPoolSize: Int) {
         self.questions = questions
         self.timeLimit = timeLimit
+        self.totalPoolSize = totalPoolSize
         self._timeRemaining = State(initialValue: timeLimit) // Initialize the timer with the provided limit
     }
     
@@ -182,7 +183,7 @@ struct QuizView: View {
                                 .font(.caption)
                                 .padding(.bottom, 10)
                             
-                            Text("From a pool of \(quizStore.getTotalQuizQuestions()) questions.")
+                            Text("From a pool of \(totalPoolSize) questions.")
                                 .font(.caption)
                         }
                     }
@@ -334,7 +335,11 @@ class QuizView_Previews: PreviewProvider {
         let sampleQuestions = quizStore.getRandomQuizQuestions(count: 4)
         let sampleTimeLimit = 160;
         
-        QuizView(questions: sampleQuestions, timeLimit: sampleTimeLimit)
+        QuizView(
+            questions: sampleQuestions, 
+            timeLimit: sampleTimeLimit, 
+            totalPoolSize: quizStore.getTotalQuizQuestions()
+        )
             .previewDevice("iPhone 14")
             .previewDisplayName("iPhone 14")
     }
