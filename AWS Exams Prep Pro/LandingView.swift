@@ -24,7 +24,8 @@ struct LandingScreenView: View {
                         .font(.headline)
                         .multilineTextAlignment(.center)
                         .fixedSize(horizontal: false, vertical: true)
-                }.padding(.bottom, 20)
+                }.padding(.top, 80)
+
 
                 // Question Set Selection
                 Picker("Select Question Set", selection: $selectedQuestionSet) {
@@ -88,6 +89,8 @@ struct LandingScreenView: View {
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
+                Spacer()
+                Text("Built by CoffeeDevs LLC 2025")
             }
             .padding()
             .onChange(of: selectedQuestionSet) { newValue in

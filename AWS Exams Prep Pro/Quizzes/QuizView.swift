@@ -1,4 +1,5 @@
 import SwiftUI
+import StoreKit
 
 // MARK: - QuizQuestion Model
 struct QuizQuestion: Decodable {
@@ -21,6 +22,11 @@ struct QuizView: View {
     @State private var quizCompleted: Bool = false // Track if the quiz is completed
 
     @State private var showConfetti: Bool = false // State to trigger confetti animation
+    @State private var showReviewPrompt: Bool = false // Track if review prompt should be shown
+    @State private var userLikedApp: Bool? // Track user's response to liking the app
+    @State private var showFeedbackModal: Bool = false // Track if feedback modal should be shown
+    @State private var feedbackText: String = "" // Store user feedback text
+    @State private var showFeedbackConfirmation: Bool = false // Track if feedback confirmation should be shown
     
     // Timer properties
     @State private var timeRemaining: Int
@@ -82,6 +88,10 @@ struct QuizView: View {
                             .fontWeight(.bold)
                             .padding()
                             .foregroundColor(.green)
+                            
+                        CelebrationTrophy()
+                            .frame(width: 200, height: 200)
+                            .padding()
                     } else {
                         Text("You Did Not Pass")
                             .font(.largeTitle)
@@ -93,12 +103,6 @@ struct QuizView: View {
                     Text("Your Score: \(correctAnswersCount) / \(questions.count) (\(String(format: "%.1f", percentage))%)")
                         .font(.headline)
                         .padding()
-                    
-                    if passed && showConfetti {
-                        ConfettiView() // Use the new ConfettiView here
-                            .frame(maxWidth: .infinity, maxHeight: 300)
-                            .padding(.top, 20)
-                    }
                     
                     Button(action: restartQuiz) {
                         Text("Restart Quiz")
@@ -194,6 +198,57 @@ struct QuizView: View {
                 stopTimer()
             }
         }
+        .alert("Did you enjoy using the app?", isPresented: $showReviewPrompt) {
+            Button("Yes") {
+                userLikedApp = true
+                // Request App Store review
+                if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                    SKStoreReviewController.requestReview(in: scene)
+                }
+            }
+            Button("No") {
+                userLikedApp = false
+                showFeedbackModal = true
+            }
+        }
+        .sheet(isPresented: $showFeedbackModal) {
+            NavigationView {
+                VStack(spacing: 20) {
+                    Text("We're sorry to hear that. Please help us improve by sharing your feedback.")
+                        .multilineTextAlignment(.center)
+                        .padding()
+                    
+                    TextEditor(text: $feedbackText)
+                        .frame(height: 200)
+                        .border(Color.gray, width: 1)
+                        .padding()
+                    
+                    Button(action: submitFeedback) {
+                        Text("Submit Feedback")
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    .padding()
+                    .disabled(feedbackText.isEmpty)
+                }
+                .padding()
+                .navigationTitle("Feedback")
+                .navigationBarItems(trailing: Button("Cancel") {
+                    showFeedbackModal = false
+                })
+            }
+        }
+        .alert("Thank You!", isPresented: $showFeedbackConfirmation) {
+            Button("OK") {
+                showFeedbackModal = false
+                feedbackText = ""
+            }
+        } message: {
+            Text("Thank you for your feedback. We'll take it into account to improve the app.")
+        }
     }
     
     private func submitButtonDisabled() -> Bool {
@@ -244,6 +299,13 @@ struct QuizView: View {
             quizCompleted = true
             stopTimer()
             
+            // Show review prompt after a short delay only if user passed
+            let percentage = Double(correctAnswersCount) / Double(questions.count) * 100
+            if percentage >= 70 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    showReviewPrompt = true
+                }
+            }
             
             // Calculate the time spent
             let timeSpent = timeLimit - timeRemaining
@@ -257,9 +319,7 @@ struct QuizView: View {
             )
             QuizResultsManager.shared.saveResult(result)
             
-            
             // Trigger confetti if the user passed
-            let percentage = Double(correctAnswersCount) / Double(questions.count) * 100
             showConfetti = percentage >= 70
         }
     }
@@ -273,6 +333,8 @@ struct QuizView: View {
         showExplanation = false
         showNextQuestionButton = false
         showConfetti = false
+        showReviewPrompt = false
+        userLikedApp = nil
         timeRemaining = 2400 // Reset the timer to 40 minutes
         timerStarted = false // Mark timer as not started
         stopTimer() // Ensure the previous timer is stopped
@@ -325,6 +387,12 @@ struct QuizView: View {
         let seconds = seconds % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
+
+    private func submitFeedback() {
+        // TODO: Implement feedback submission to Firebase or other service
+        print("Feedback submitted: \(feedbackText)")
+        showFeedbackConfirmation = true
+    }
 }
 
 // MARK: - PreviewProvider
@@ -342,5 +410,50 @@ class QuizView_Previews: PreviewProvider {
         )
             .previewDevice("iPhone 14")
             .previewDisplayName("iPhone 14")
+    }
+}
+
+// MARK: - Celebration Trophy View
+struct CelebrationTrophy: View {
+    var body: some View {
+        ZStack {
+            // Trophy base
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color.yellow)
+                .frame(width: 100, height: 20)
+                .offset(y: 80)
+            
+            // Trophy stem
+            Rectangle()
+                .fill(Color.yellow)
+                .frame(width: 20, height: 60)
+                .offset(y: 20)
+            
+            // Trophy cup
+            ZStack {
+                Circle()
+                    .fill(Color.yellow)
+                    .frame(width: 100, height: 100)
+                
+                Circle()
+                    .fill(Color.white)
+                    .frame(width: 80, height: 80)
+                
+                // Star
+                Image(systemName: "star.fill")
+                    .font(.system(size: 40))
+                    .foregroundColor(.yellow)
+            }
+            .offset(y: -30)
+            
+            // Sparkles
+            ForEach(0..<4) { index in
+                Image(systemName: "sparkles")
+                    .font(.system(size: 20))
+                    .foregroundColor(.yellow)
+                    .rotationEffect(.degrees(Double(index) * 90))
+                    .offset(x: 60, y: -60)
+            }
+        }
     }
 }
