@@ -4,6 +4,7 @@ struct LandingScreenView: View {
     @State private var selectedQuestionSet: QuestionSet = .cloudPractitioner // Default selection
     @State private var isFullQuizActive = false
     @State private var isQuickQuizActive = false
+    @State private var showExamSelector = false
 
     @StateObject private var quizData = QuizQuestions() // Change to @StateObject to properly manage the lifecycle
 
@@ -26,14 +27,21 @@ struct LandingScreenView: View {
                         .fixedSize(horizontal: false, vertical: true)
                 }.padding(.top, 80)
 
-
-                // Question Set Selection
-                Picker("Select Question Set", selection: $selectedQuestionSet) {
-                    Text("Cloud Practitioner").tag(QuestionSet.cloudPractitioner)
-                    Text("Solution Architect Associate").tag(QuestionSet.softwareArchitectAssociate)
+                // Exam Selection Button
+                Button(action: {
+                    showExamSelector = true
+                }) {
+                    HStack {
+                        Text(selectedQuestionSet.title)
+                            .font(.headline)
+                        Spacer()
+                        Image(systemName: "chevron.down")
+                    }
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(10)
                 }
-                .pickerStyle(.segmented)
-                
+
                 // Show the number of questions loaded
                 Text("Loaded \(quizData.allQuizQuestions.count) questions")
                     .font(.caption)
@@ -93,6 +101,9 @@ struct LandingScreenView: View {
                 Text("Built by CoffeeDevs LLC 2025")
             }
             .padding()
+            .sheet(isPresented: $showExamSelector) {
+                ExamSelectorView(selectedExam: $selectedQuestionSet, isPresented: $showExamSelector)
+            }
             .onChange(of: selectedQuestionSet) { newValue in
                 switch newValue {
                 case .cloudPractitioner:
@@ -112,16 +123,55 @@ struct LandingScreenView: View {
             }
         }
     }
+}
 
-    // Helper function to get questions for the selected set
-    func getQuestionsForSelectedSet(questionSet: QuestionSet, count: Int) -> [QuizQuestion] {
-        return Array(quizData.allQuizQuestions.shuffled().prefix(count))
+// MARK: - Exam Selector View
+struct ExamSelectorView: View {
+    @Binding var selectedExam: QuestionSet
+    @Binding var isPresented: Bool
+    
+    var body: some View {
+        NavigationView {
+            List {
+                Section(header: Text("AWS Certifications")) {
+                    ForEach(QuestionSet.allCases, id: \.self) { exam in
+                        Button(action: {
+                            selectedExam = exam
+                            isPresented = false
+                        }) {
+                            HStack {
+                                Text(exam.title)
+                                    .foregroundColor(.primary)
+                                Spacer()
+                                if selectedExam == exam {
+                                    Image(systemName: "checkmark")
+                                        .foregroundColor(.blue)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Select Exam")
+            .navigationBarItems(trailing: Button("Done") {
+                isPresented = false
+            })
+        }
     }
 }
 
-enum QuestionSet {
+enum QuestionSet: CaseIterable {
     case cloudPractitioner
     case softwareArchitectAssociate
+    
+    var title: String {
+        switch self {
+        case .cloudPractitioner:
+            return "AWS Cloud Practitioner"
+        case .softwareArchitectAssociate:
+            return "AWS Solutions Architect Associate"
+        }
+    }
 }
 
 // MARK: - PreviewProvider
