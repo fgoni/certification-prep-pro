@@ -87,8 +87,8 @@ struct LandingScreenView: View {
                     .padding(.horizontal, 12)
                     .padding(.vertical, 8)
                     .frame(maxWidth: .infinity)
-                    .background(quizLimitManager.canStartQuiz() ? Color.blue : Color.gray)
-                    .foregroundColor(.white)
+                    .background(quizLimitManager.canStartQuiz() ? Color.blue : Color(.systemGray5))
+                    .foregroundColor(quizLimitManager.canStartQuiz() ? .white : .gray)
                     .cornerRadius(8)
                 }
                 .navigationDestination(isPresented: $isFullQuizActive) {
@@ -127,8 +127,8 @@ struct LandingScreenView: View {
                     .padding(.horizontal, 12)
                     .padding(.vertical, 8)
                     .frame(maxWidth: .infinity)
-                    .background(quizLimitManager.canStartQuiz() ? Color.blue : Color.gray)
-                    .foregroundColor(.white)
+                    .background(quizLimitManager.canStartQuiz() ? Color.blue : Color(.systemGray5))
+                    .foregroundColor(quizLimitManager.canStartQuiz() ? .white : .gray)
                     .cornerRadius(8)
                 }
                 .navigationDestination(isPresented: $isQuickQuizActive) {
@@ -141,13 +141,24 @@ struct LandingScreenView: View {
 
                 // NavigationLink for Historical Results
                 NavigationLink(destination: HistoricalResultsView()) { 
-                    Text("View Historical Results")
-                        .padding()
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity)
-                        .background(Color.gray)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
+                    HStack {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Historical Results")
+                                .font(.headline)
+                            Text("View your past quiz performances")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
+                        Spacer()
+                        Image(systemName: "chart.bar.fill")
+                            .foregroundColor(.blue)
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .frame(maxWidth: .infinity)
+                    .background(Color(.systemGray6))
+                    .foregroundColor(.primary)
+                    .cornerRadius(8)
                 }
                 Spacer()
                 Text("Built by CoffeeDevs LLC 2025")

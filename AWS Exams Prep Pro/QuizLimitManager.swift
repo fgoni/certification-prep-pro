@@ -5,6 +5,7 @@ class QuizLimitManager: ObservableObject {
     
     private let userDefaults = UserDefaults.standard
     private let dailyLimit = 3
+    private var resetCheckTimer: Timer?
     
     @Published var remainingAttempts: Int
     
@@ -12,7 +13,20 @@ class QuizLimitManager: ObservableObject {
         // Load saved value or initialize with default
         remainingAttempts = userDefaults.integer(forKey: "remainingAttempts")
         
-        // Check if we need to reset limits (daily)
+        // Set up initial reset check
+        checkAndResetIfNeeded()
+        
+        // Set up periodic reset check (every hour)
+        resetCheckTimer = Timer.scheduledTimer(withTimeInterval: 3600, repeats: true) { [weak self] _ in
+            self?.checkAndResetIfNeeded()
+        }
+    }
+    
+    deinit {
+        resetCheckTimer?.invalidate()
+    }
+    
+    private func checkAndResetIfNeeded() {
         if shouldResetLimits() {
             resetLimits()
         }
