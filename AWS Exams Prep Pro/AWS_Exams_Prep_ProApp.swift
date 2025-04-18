@@ -7,9 +7,15 @@
 
 import SwiftUI
 import SwiftData
+import GoogleMobileAds
 
 @main
 struct AWS_Exams_Prep_ProApp: App {
+    init() {
+        // Initialize Google Mobile Ads SDK
+        MobileAds.shared.start(completionHandler: nil)
+    }
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,

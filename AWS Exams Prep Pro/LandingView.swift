@@ -1,18 +1,30 @@
 import SwiftUI
 
 struct LandingScreenView: View {
-    @State private var selectedQuestionSet: QuestionSet = .cloudPractitioner // Default selection
+    @State private var selectedQuestionSet: QuestionSet = .cloudPractitioner
     @State private var isFullQuizActive = false
     @State private var isQuickQuizActive = false
     @State private var showExamSelector = false
-
-    @StateObject private var quizData = QuizQuestions() // Change to @StateObject to properly manage the lifecycle
-
+    @State private var showAdAlert = false
+    @State private var adRewardType: QuizType?
+    
+    @StateObject private var quizData = QuizQuestions()
+    @StateObject private var quizLimitManager = QuizLimitManager.shared
+    @StateObject private var adManager = AdManager.shared
+    
     let blue = Color(hue: 0.57, saturation: 0.80, brightness: 0.39)
+    
+    enum QuizType {
+        case quick
+        case full
+    }
 
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
+                QuizLimitBar()
+                    .padding(.top, 10)
+                
                 VStack {
                     Text("Certification Prep Pro")
                         .font(.largeTitle)
@@ -25,7 +37,7 @@ struct LandingScreenView: View {
                         .font(.headline)
                         .multilineTextAlignment(.center)
                         .fixedSize(horizontal: false, vertical: true)
-                }.padding(.top, 80)
+                }
 
                 // Exam Selection Button
                 Button(action: {
@@ -47,17 +59,37 @@ struct LandingScreenView: View {
                     .font(.caption)
                     .foregroundColor(.gray)
 
-                // NavigationLink for Full Quiz - uses binding to correctly initialize when tapped
+                // Full Quiz Button
                 Button {
-                    isFullQuizActive = true
+                    if quizLimitManager.canStartQuiz() {
+                        isFullQuizActive = true
+                        quizLimitManager.useAttempt()
+                    } else {
+                        adRewardType = .full
+                        showAdAlert = true
+                    }
                 } label: {
-                    Text("Start Full Quiz (65 Questions, 40 Minutes)")
-                        .padding()
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
+                    HStack {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Full Quiz")
+                                .font(.headline)
+                            Text("65 Questions • 40 Minutes")
+                                .font(.caption)
+                            if !quizLimitManager.canStartQuiz() {
+                                Text("Watch ad to unlock")
+                                    .font(.caption2)
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                        Spacer()
+                        Image(systemName: "arrow.right.circle.fill")
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .frame(maxWidth: .infinity)
+                    .background(quizLimitManager.canStartQuiz() ? Color.blue : Color.gray)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
                 }
                 .navigationDestination(isPresented: $isFullQuizActive) {
                     QuizView(
@@ -67,17 +99,37 @@ struct LandingScreenView: View {
                     )
                 }
 
-                // NavigationLink for Quick Quiz - uses binding to correctly initialize when tapped
+                // Quick Quiz Button
                 Button {
-                    isQuickQuizActive = true
+                    if quizLimitManager.canStartQuiz() {
+                        isQuickQuizActive = true
+                        quizLimitManager.useAttempt()
+                    } else {
+                        adRewardType = .quick
+                        showAdAlert = true
+                    }
                 } label: {
-                    Text("Start Quick Quiz (20 Questions, 12 Minutes)")
-                        .padding()
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
+                    HStack {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Quick Quiz")
+                                .font(.headline)
+                            Text("20 Questions • 12 Minutes")
+                                .font(.caption)
+                            if !quizLimitManager.canStartQuiz() {
+                                Text("Watch ad to unlock")
+                                    .font(.caption2)
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                        Spacer()
+                        Image(systemName: "arrow.right.circle.fill")
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .frame(maxWidth: .infinity)
+                    .background(quizLimitManager.canStartQuiz() ? Color.blue : Color.gray)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
                 }
                 .navigationDestination(isPresented: $isQuickQuizActive) {
                     QuizView(
@@ -101,6 +153,27 @@ struct LandingScreenView: View {
                 Text("Built by CoffeeDevs LLC 2025")
             }
             .padding()
+            .alert("Watch Ad to Unlock", isPresented: $showAdAlert) {
+                Button("Watch Ad") {
+                    adManager.showRewardedInterstitialAd { success in
+                        if success {
+                            quizLimitManager.addAttempt()
+                            // Automatically start the quiz after successful ad
+                            if let type = adRewardType {
+                                switch type {
+                                case .quick:
+                                    isQuickQuizActive = true
+                                case .full:
+                                    isFullQuizActive = true
+                                }
+                            }
+                        }
+                    }
+                }
+                Button("Cancel", role: .cancel) { }
+            } message: {
+                Text("Watch a short ad to unlock an additional quiz attempt.")
+            }
             .sheet(isPresented: $showExamSelector) {
                 ExamSelectorView(selectedExam: $selectedQuestionSet, isPresented: $showExamSelector)
             }
@@ -122,6 +195,35 @@ struct LandingScreenView: View {
                 }
             }
         }
+    }
+}
+
+// MARK: - Quiz Limit Bar
+struct QuizLimitBar: View {
+    @StateObject private var quizLimitManager = QuizLimitManager.shared
+    
+    var body: some View {
+        HStack(spacing: 12) {
+            HStack(spacing: 4) {
+                Image(systemName: "bolt.fill")
+                    .foregroundColor(.yellow)
+                Text("\(quizLimitManager.remainingAttempts)/3")
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+            }
+            
+            HStack(spacing: 4) {
+                Image(systemName: "clock.fill")
+                    .foregroundColor(.blue)
+                Text(quizLimitManager.timeUntilReset())
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+            }
+        }
+        .padding(.vertical, 4)
+        .padding(.horizontal, 8)
+        .background(Color(.systemGray6))
+        .cornerRadius(8)
     }
 }
 

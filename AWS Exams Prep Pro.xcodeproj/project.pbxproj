@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520AEF1D2DB02C1C00D93F0B /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 520AEF1C2DB02C1C00D93F0B /* GoogleMobileAds */; };
+		520AEF202DB02D3800D93F0B /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520AEF1E2DB02D3800D93F0B /* AdManager.swift */; };
+		520AEF212DB02D3800D93F0B /* QuizLimitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520AEF1F2DB02D3800D93F0B /* QuizLimitManager.swift */; };
 		5210930E2C69349300218BA2 /* AWS_Exams_Prep_ProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210930D2C69349300218BA2 /* AWS_Exams_Prep_ProApp.swift */; };
 		521093102C69349300218BA2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210930F2C69349300218BA2 /* ContentView.swift */; };
 		521093122C69349300218BA2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521093112C69349300218BA2 /* Item.swift */; };
@@ -46,6 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		520AEF1E2DB02D3800D93F0B /* AdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdManager.swift; sourceTree = "<group>"; };
+		520AEF1F2DB02D3800D93F0B /* QuizLimitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLimitManager.swift; sourceTree = "<group>"; };
+		520AEF222DB14C9000D93F0B /* AWS-Exams-Prep-Pro-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AWS-Exams-Prep-Pro-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5210930A2C69349300218BA2 /* AWS Exams Prep Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AWS Exams Prep Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5210930D2C69349300218BA2 /* AWS_Exams_Prep_ProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWS_Exams_Prep_ProApp.swift; sourceTree = "<group>"; };
 		5210930F2C69349300218BA2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				520AEF1D2DB02C1C00D93F0B /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +125,7 @@
 		5210930C2C69349300218BA2 /* AWS Exams Prep Pro */ = {
 			isa = PBXGroup;
 			children = (
+				520AEF222DB14C9000D93F0B /* AWS-Exams-Prep-Pro-Info.plist */,
 				52647E402D4C4F1E0041D589 /* Assets.xcassets */,
 				521093422C6A4C8D00218BA2 /* Confetti */,
 				521093392C6934D200218BA2 /* Quizzes */,
@@ -127,6 +135,8 @@
 				524B999E2C6C2EB400BABD60 /* LandingView.swift */,
 				524B99A42C6D1E9300BABD60 /* HistoricalResultsView.swift */,
 				521093152C69349400218BA2 /* Preview Content */,
+				520AEF1E2DB02D3800D93F0B /* AdManager.swift */,
+				520AEF1F2DB02D3800D93F0B /* QuizLimitManager.swift */,
 			);
 			path = "AWS Exams Prep Pro";
 			sourceTree = "<group>";
@@ -267,6 +277,9 @@
 				Base,
 			);
 			mainGroup = 521093012C69349200218BA2;
+			packageReferences = (
+				520AEF1B2DB02C1C00D93F0B /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			productRefGroup = 5210930B2C69349300218BA2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -311,6 +324,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				520AEF202DB02D3800D93F0B /* AdManager.swift in Sources */,
+				520AEF212DB02D3800D93F0B /* QuizLimitManager.swift in Sources */,
 				521093462C6A4CAF00218BA2 /* ConfettiView.swift in Sources */,
 				521093102C69349300218BA2 /* ContentView.swift in Sources */,
 				524B99A32C6D1E1400BABD60 /* QuizResultManager.swift in Sources */,
@@ -491,6 +506,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZKYJ6G9GJP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AWS-Exams-Prep-Pro-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Certification Prep Pro for AWS";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -530,6 +546,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZKYJ6G9GJP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AWS-Exams-Prep-Pro-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Certification Prep Pro for AWS";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -666,6 +683,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		520AEF1B2DB02C1C00D93F0B /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		520AEF1C2DB02C1C00D93F0B /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 520AEF1B2DB02C1C00D93F0B /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 521093022C69349200218BA2 /* Project object */;
 }
