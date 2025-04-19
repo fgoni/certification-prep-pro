@@ -61,9 +61,9 @@ struct LandingScreenView: View {
 
                 // Full Quiz Button
                 Button {
-                    if quizLimitManager.canStartQuiz() {
+                    if QuizLimitManager.shared.canStartQuiz() {
+                        QuizLimitManager.shared.useAttempt()
                         isFullQuizActive = true
-                        quizLimitManager.useAttempt()
                     } else {
                         adRewardType = .full
                         showAdAlert = true
@@ -75,7 +75,7 @@ struct LandingScreenView: View {
                                 .font(.headline)
                             Text("65 Questions • 40 Minutes")
                                 .font(.caption)
-                            if !quizLimitManager.canStartQuiz() {
+                            if !QuizLimitManager.shared.canStartQuiz() {
                                 Text("Watch ad to unlock")
                                     .font(.caption2)
                                     .foregroundColor(.gray)
@@ -87,8 +87,8 @@ struct LandingScreenView: View {
                     .padding(.horizontal, 12)
                     .padding(.vertical, 8)
                     .frame(maxWidth: .infinity)
-                    .background(quizLimitManager.canStartQuiz() ? Color.blue : Color(.systemGray5))
-                    .foregroundColor(quizLimitManager.canStartQuiz() ? .white : .gray)
+                    .background(QuizLimitManager.shared.canStartQuiz() ? Color.blue : Color(.systemGray5))
+                    .foregroundColor(QuizLimitManager.shared.canStartQuiz() ? .white : .gray)
                     .cornerRadius(8)
                 }
                 .navigationDestination(isPresented: $isFullQuizActive) {
@@ -101,9 +101,9 @@ struct LandingScreenView: View {
 
                 // Quick Quiz Button
                 Button {
-                    if quizLimitManager.canStartQuiz() {
+                    if QuizLimitManager.shared.canStartQuiz() {
+                        QuizLimitManager.shared.useAttempt()
                         isQuickQuizActive = true
-                        quizLimitManager.useAttempt()
                     } else {
                         adRewardType = .quick
                         showAdAlert = true
@@ -115,7 +115,7 @@ struct LandingScreenView: View {
                                 .font(.headline)
                             Text("20 Questions • 12 Minutes")
                                 .font(.caption)
-                            if !quizLimitManager.canStartQuiz() {
+                            if !QuizLimitManager.shared.canStartQuiz() {
                                 Text("Watch ad to unlock")
                                     .font(.caption2)
                                     .foregroundColor(.gray)
@@ -127,8 +127,8 @@ struct LandingScreenView: View {
                     .padding(.horizontal, 12)
                     .padding(.vertical, 8)
                     .frame(maxWidth: .infinity)
-                    .background(quizLimitManager.canStartQuiz() ? Color.blue : Color(.systemGray5))
-                    .foregroundColor(quizLimitManager.canStartQuiz() ? .white : .gray)
+                    .background(QuizLimitManager.shared.canStartQuiz() ? Color.blue : Color(.systemGray5))
+                    .foregroundColor(QuizLimitManager.shared.canStartQuiz() ? .white : .gray)
                     .cornerRadius(8)
                 }
                 .navigationDestination(isPresented: $isQuickQuizActive) {
@@ -164,11 +164,14 @@ struct LandingScreenView: View {
                 Text("Built by CoffeeDevs LLC 2025")
             }
             .padding()
-            .alert("Watch Ad to Unlock", isPresented: $showAdAlert) {
+            .alert("Watch an Ad to Unlock More Quizzes", isPresented: $showAdAlert) {
                 Button("Watch Ad") {
-                    adManager.showRewardedInterstitialAd { success in
+                    AdManager.shared.showRewardedInterstitialAd { success in
                         if success {
-                            quizLimitManager.addAttempt()
+                            QuizLimitManager.shared.addAttempt()
+                            QuizLimitManager.shared.useAttempt()
+                            showAdAlert = false
+                            
                             // Automatically start the quiz after successful ad
                             if let type = adRewardType {
                                 switch type {
@@ -181,9 +184,11 @@ struct LandingScreenView: View {
                         }
                     }
                 }
-                Button("Cancel", role: .cancel) { }
+                Button("Cancel", role: .cancel) {
+                    showAdAlert = false
+                }
             } message: {
-                Text("Watch a short ad to unlock an additional quiz attempt.")
+                Text("Watch a short ad to get an additional quiz attempt.")
             }
             .sheet(isPresented: $showExamSelector) {
                 ExamSelectorView(selectedExam: $selectedQuestionSet, isPresented: $showExamSelector)

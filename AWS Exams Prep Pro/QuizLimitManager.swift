@@ -1,57 +1,46 @@
 import Foundation
+import SwiftUI
 
 class QuizLimitManager: ObservableObject {
     static let shared = QuizLimitManager()
     
-    private let userDefaults = UserDefaults.standard
-    private let dailyLimit = 3
-    private var resetCheckTimer: Timer?
-    
-    @Published var remainingAttempts: Int
+    @Published private(set) var remainingAttempts: Int
+    private let maxAttempts = 3
+    private let lastResetDateKey = "lastResetDate"
+    private let remainingAttemptsKey = "remainingAttempts"
     
     private init() {
-        // Load saved value or initialize with default
-        remainingAttempts = userDefaults.integer(forKey: "remainingAttempts")
+        // Load the remaining attempts from UserDefaults
+        self.remainingAttempts = UserDefaults.standard.integer(forKey: remainingAttemptsKey)
         
-        // Set up initial reset check
-        checkAndResetIfNeeded()
-        
-        // Set up periodic reset check (every hour)
-        resetCheckTimer = Timer.scheduledTimer(withTimeInterval: 3600, repeats: true) { [weak self] _ in
-            self?.checkAndResetIfNeeded()
+        // If this is the first time or the value is 0, set it to max attempts
+        if self.remainingAttempts == 0 {
+            self.remainingAttempts = maxAttempts
+            UserDefaults.standard.set(maxAttempts, forKey: remainingAttemptsKey)
         }
-    }
-    
-    deinit {
-        resetCheckTimer?.invalidate()
-    }
-    
-    private func checkAndResetIfNeeded() {
+        
+        // Check if we need to reset the limits
         if shouldResetLimits() {
             resetLimits()
         }
     }
     
     private func shouldResetLimits() -> Bool {
-        guard let lastResetDate = userDefaults.object(forKey: "lastResetDate") as? Date else {
+        guard let lastResetDate = UserDefaults.standard.object(forKey: lastResetDateKey) as? Date else {
             return true
         }
         
         let calendar = Calendar.current
         let now = Date()
         
-        // Check if it's been a day since last reset
-        if let daysSinceReset = calendar.dateComponents([.day], from: lastResetDate, to: now).day {
-            return daysSinceReset >= 1
-        }
-        
-        return true
+        // Check if it's a new day
+        return !calendar.isDate(lastResetDate, inSameDayAs: now)
     }
     
     private func resetLimits() {
-        remainingAttempts = dailyLimit
-        userDefaults.set(remainingAttempts, forKey: "remainingAttempts")
-        userDefaults.set(Date(), forKey: "lastResetDate")
+        remainingAttempts = maxAttempts
+        UserDefaults.standard.set(maxAttempts, forKey: remainingAttemptsKey)
+        UserDefaults.standard.set(Date(), forKey: lastResetDateKey)
     }
     
     func canStartQuiz() -> Bool {
@@ -59,36 +48,27 @@ class QuizLimitManager: ObservableObject {
     }
     
     func useAttempt() {
-        if remainingAttempts > 0 {
-            remainingAttempts -= 1
-            userDefaults.set(remainingAttempts, forKey: "remainingAttempts")
-        }
+        guard remainingAttempts > 0 else { return }
+        remainingAttempts -= 1
+        UserDefaults.standard.set(remainingAttempts, forKey: remainingAttemptsKey)
     }
     
     func addAttempt() {
         remainingAttempts += 1
-        userDefaults.set(remainingAttempts, forKey: "remainingAttempts")
+        UserDefaults.standard.set(remainingAttempts, forKey: remainingAttemptsKey)
     }
     
     func timeUntilReset() -> String {
-        guard let lastResetDate = userDefaults.object(forKey: "lastResetDate") as? Date else {
-            return "Unknown"
-        }
-        
         let calendar = Calendar.current
         let now = Date()
+        let lastResetDate = UserDefaults.standard.object(forKey: lastResetDateKey) as? Date ?? now
         
-        // Calculate next reset date (1 day from last reset)
-        guard let nextResetDate = calendar.date(byAdding: .day, value: 1, to: lastResetDate) else {
-            return "Unknown"
-        }
+        // Get the start of the next day
+        let nextDay = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 1, to: lastResetDate)!)
         
-        let components = calendar.dateComponents([.hour, .minute], from: now, to: nextResetDate)
+        // Calculate the time difference
+        let components = calendar.dateComponents([.hour, .minute], from: now, to: nextDay)
         
-        if let hours = components.hour, let minutes = components.minute {
-            return "\(hours)h \(minutes)m"
-        }
-        
-        return "Unknown"
+        return String(format: "%02d:%02d", components.hour ?? 0, components.minute ?? 0)
     }
 } 

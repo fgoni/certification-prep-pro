@@ -21,108 +21,105 @@ struct HistoricalResultsView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack(spacing: 20) {
-                if results.isEmpty {
-                    Spacer()
-                    VStack(spacing: 20) {
-                        Image(systemName: "chart.bar.xaxis")
-                            .font(.system(size: 60))
-                            .foregroundColor(.gray)
-                        
-                        Text("No Quiz Results Yet")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                        
-                        Text("Complete a quiz to see your results and track your progress.")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal)
-                        
-                        Button(action: { dismiss() }) {
-                            HStack {
-                                Image(systemName: "arrow.left")
-                                Text("Start a Quiz")
-                            }
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                        }
-                    }
-                    Spacer()
-                } else {
-                    // Statistics Overview
-                    VStack(alignment: .center, spacing: 16) {
-                        Text("Overview")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .padding(.horizontal)
-                        
-                        HStack(spacing: 24) {
-                            VStack(alignment: .center, spacing: 4) {
-                                HStack(spacing: 4) {
-                                    Image(systemName: "star.fill")
-                                        .foregroundColor(.yellow)
-                                    Text("Average Score")
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
-                                }
-                                Text(String(format: "%.1f%%", averageScore))
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                            }
-                            
-                            VStack(alignment: .center, spacing: 4) {
-                                HStack(spacing: 4) {
-                                    Image(systemName: "checkmark.circle.fill")
-                                        .foregroundColor(.green)
-                                    Text("Pass Rate")
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
-                                }
-                                Text(String(format: "%.1f%%", passRate))
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                            }
-                            
-                            VStack(alignment: .center, spacing: 4) {
-                                HStack(spacing: 4) {
-                                    Image(systemName: "clock.fill")
-                                        .foregroundColor(.blue)
-                                    Text("Avg. Time")
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
-                                }
-                                Text(formatTime(Int(averageTimeSpent)))
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                            }
-                        }
-                        .padding(.horizontal)
-                    }
-                    .padding(.vertical, 8)
+        VStack(spacing: 20) {
+            if results.isEmpty {
+                Spacer()
+                VStack(spacing: 20) {
+                    Image(systemName: "chart.bar.xaxis")
+                        .font(.system(size: 60))
+                        .foregroundColor(.gray)
                     
-                    // Results List
-                    ScrollView {
-                        LazyVStack(spacing: 16) {
-                            ForEach(results) { result in
-                                ResultCard(result: result)
-                            }
-                        }
+                    Text("No Quiz Results Yet")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                    
+                    Text("Complete a quiz to see your results and track your progress.")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
                         .padding(.horizontal)
+                    
+                    Button(action: { dismiss() }) {
+                        HStack {
+                            Image(systemName: "arrow.left")
+                            Text("Start a Quiz")
+                        }
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                     }
                 }
-            }
-            .navigationTitle("Quiz History")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: { dismiss() }) {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.blue)
+                Spacer()
+            } else {
+                // Statistics Overview
+                VStack(alignment: .center, spacing: 16) {
+                    Text("Overview")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .padding(.horizontal)
+                    
+                    HStack(spacing: 24) {
+                        VStack(alignment: .center, spacing: 4) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "star.fill")
+                                    .foregroundColor(.yellow)
+                                Text("Average Score")
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                            }
+                            Text(String(format: "%.1f%%", averageScore))
+                                .font(.title3)
+                                .fontWeight(.bold)
+                        }
+                        
+                        VStack(alignment: .center, spacing: 4) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.green)
+                                Text("Pass Rate")
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                            }
+                            Text(String(format: "%.1f%%", passRate))
+                                .font(.title3)
+                                .fontWeight(.bold)
+                        }
+                        
+                        VStack(alignment: .center, spacing: 4) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "clock.fill")
+                                    .foregroundColor(.blue)
+                                Text("Avg. Time")
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                            }
+                            Text(formatTime(Int(averageTimeSpent)))
+                                .font(.title3)
+                                .fontWeight(.bold)
+                        }
                     }
+                    .padding(.horizontal)
+                }
+                .padding(.vertical, 8)
+                
+                // Results List
+                ScrollView {
+                    LazyVStack(spacing: 16) {
+                        ForEach(results) { result in
+                            ResultCard(result: result)
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: { dismiss() }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.blue)
                 }
             }
         }
@@ -212,8 +209,10 @@ struct ResultCard: View {
 // MARK: - PreviewProvider
 struct HistoricalResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoricalResultsView()
-            .previewDevice("iPhone 14")
-            .previewDisplayName("iPhone 14")
+        NavigationView {
+            HistoricalResultsView()
+        }
+        .previewDevice("iPhone 14")
+        .previewDisplayName("iPhone 14")
     }
 }
