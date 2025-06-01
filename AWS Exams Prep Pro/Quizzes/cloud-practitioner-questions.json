@@ -18,8 +18,7 @@
         "id": "5a89e73c-a62a-4588-9857-978c1e2b2031",
         "questionText": "Which of the following is an example of horizontal scaling in the AWS Cloud?",
         "options": [
-            "Replacing an existing EC2 instance with a larger",
-            "more powerful one.",
+            "Replacing an existing EC2 instance with a larger, more powerful one.",
             "Increasing the compute capacity of a single EC2 instance to address the growing demands of an application.",
             "Adding more RAM capacity to an EC2 instance.",
             "Adding more EC2 instances of the same size to handle an increase in traffic."
@@ -51,8 +50,7 @@
         "options": [
             "Applying the principle of least privilege to all AWS resources.",
             "Automatically provisioning new resources to meet demand.",
-            "All AWS services are considered Global Services",
-            "and this design helps customers serve their international users.",
+            "All AWS services are considered Global Services, and this design helps customers serve their international users.",
             "Providing compensation to customers if issues occur.",
             "Ability to recover quickly from failures."
         ],
@@ -221,8 +219,7 @@
         "id": "250fa8ec-978b-4c64-9a9c-b057e7a9bd33",
         "questionText": "What is the advantage of the AWS-recommended practice of \\\"decoupling\\\" applications?",
         "options": [
-            "Allows treating an application as a single",
-            "cohesive unit.",
+            "Allows treating an application as a single cohesive unit.",
             "Reduces inter-dependencies so that failures do not impact other components of the application.",
             "Allows updates of any monolithic application quickly and easily.",
             "Allows tracking of any API call made to any AWS service."
@@ -718,8 +715,7 @@
         "options": [
             "Amazon S3 provides unlimited storage for any type of data.",
             "Amazon S3 can run any type of application or backend system.",
-            "Amazon S3 stores any number of objects",
-            "but with object size limits.",
+            "Amazon S3 stores any number of objects with object size limits.",
             "Amazon S3 can be scaled manually to store and retrieve any amount of data from anywhere.",
             "Amazon S3 provides 99.999999999% (11 9\u2019s) of data durability."
         ],
@@ -858,10 +854,8 @@
         "options": [
             "You have to pay a start-up fee when launching a new instance for the first time.",
             "The on-demand instances follow the AWS pay-as-you-go pricing model.",
-            "With on-demand instances",
-            "no longer-term commitments or upfront payments are needed.",
-            "When using on-demand Linux instances",
-            "you are charged per second based on an hourly rate."
+            "With on-demand instances, no longer-term commitments or upfront payments are needed.",
+            "When using on-demand Linux instances, you are charged per second based on an hourly rate."
         ],
         "correctAnswers": [
             "You have to pay a start-up fee when launching a new instance for the first time."
@@ -935,8 +929,7 @@
         "id": "07132b85-8e87-4ff1-861e-cfd207b8d91e",
         "questionText": "Which of the below is a best-practice when designing solutions on AWS?",
         "options": [
-            "Invest heavily in architecting your environment",
-            "as it is not easy to change your design later.",
+            "Invest heavily in architecting your environment, as it is not easy to change your design later.",
             "Use AWS reservations to reduce costs when testing your production environment.",
             "Automate wherever possible to make architectural (\u00a9 ) experimentation easier.",
             "Provision a large compute capacity to handle any spikes in load"
@@ -1825,13 +1818,13 @@
         "id": "5ab11d38-c51e-4b31-ab6d-31bcc72c376d",
         "questionText": "A company needs to host a database in Amazon RDS for at least three years. Which of the following options would be the most cost-effective solution?",
         "options": [
-            "Reserved instances     - No Upfront.",
-            "Reserved instances     - Partial Upfront.",
+            "Reserved instances - No Upfront.",
+            "Reserved instances - Partial Upfront.",
             "On-Demand instances.",
             "Spot Instances."
         ],
         "correctAnswers": [
-            "Reserved instances     - Partial Upfront."
+            "Reserved instances - Partial Upfront."
         ],
         "explanation": "",
         "category": "Compute"
@@ -2013,18 +2006,13 @@
         "id": "f15aadc0-e36d-4085-b780-6f2a5ba6a1c3",
         "questionText": "How are AWS customers billed for Linux-based Amazon EC2 usage?",
         "options": [
-            "EC2 instances will be billed on one second increments",
-            "with a minimum of one minute.",
-            "EC2 instances will be billed on one hour increments",
-            "with a minimum of one day.",
-            "EC2 instances will be billed on one minute increments",
-            "with a minimum of one hour.",
-            "EC2 instances will be billed on one day increments",
-            "with a minimum of one month."
+            "EC2 instances will be billed on one second increments, with a minimum of one minute.",
+            "EC2 instances will be billed on one hour increments, with a minimum of one day.",
+            "EC2 instances will be billed on one minute increments, with a minimum of one hour.",
+            "EC2 instances will be billed on one day increments, with a minimum of one month."
         ],
         "correctAnswers": [
-            "EC2 instances will be billed on one second increments",
-            "with a minimum of one minute."
+            "EC2 instances will be billed on one second increments, with a minimum of one minute."
         ],
         "explanation": "",
         "category": "Compute"
@@ -2299,8 +2287,8 @@
         "options": [
             "On-Demand Instances.",
             "Spot Instances.",
-            "Reserved Instances     - All Upfront.",
-            "Reserved Instances     - No Upfront."
+            "Reserved Instances - All Upfront.",
+            "Reserved Instances - No Upfront."
         ],
         "correctAnswers": [
             "On-Demand Instances."
@@ -2592,12 +2580,8 @@
         "id": "a540481c-4b08-426e-a3e6-8b943206c38b",
         "questionText": "How can AWS customers track and avoid over-spending on underutilized reserved instances?",
         "options": [
-            "Customers can add all AWS accounts to an AWS Organization",
-            "enable Consolidated Billing",
-            "and turn off Reserved Instance sharing.",
-            "Customers can use Amazon Neptune to track and analyze their usage patterns",
-            "detect underutilized reserved instances",
-            "and then sell them on the Amazon EC2 Reserved Instance Marketplace.",
+            "Customers can add all AWS accounts to an AWS Organization, enable Consolidated Billing, and turn off Reserved Instance sharing.",
+            "Customers can use Amazon Neptune to track and analyze their usage patterns, detect underutilized reserved instances, and then sell them on the Amazon EC2 Reserved Instance Marketplace.",
             "Customers can use the AWS Budgets service to track the reserved instances usage and set up alert notifications when their utilization drops below the threshold that they define.",
             "Customers can use Amazon CloudTrail to automatically check for unused reservations and get recommendations to reduce their bill."
         ],
@@ -2927,8 +2911,7 @@
         "options": [
             "AWS allows them to pay later when their business succeed.",
             "AWS can build complete data centers faster than any other Cloud provider.",
-            "Using AWS",
-            "they can reduce time-to-market by focusing on business activities rather than on building and managing data centers.",
+            "Using AWS, they can reduce time-to-market by focusing on business activities rather than on building and managing data centers.",
             "AWS removes the need to invest in operational expenditure.",
             "Using AWS allows companies to replace large capital expenditure with low variable costs."
         ],
@@ -3182,17 +3165,12 @@
         "questionText": "An AWS customer has used one Amazon Linux instance for 2 hours, 5 minutes and 9 seconds, and one CentOS instance for 4 hours, 23 minutes and 7 seconds. How much time will the customer be billed for?",
         "options": [
             "3 hours for the Linux instance and 5 hours for the CentOS instance.",
-            "2 hours",
-            "5 minutes and 9 seconds for the Linux instance and 4 hours",
-            "23 minutes and 7 seconds for the CentOS instance.",
-            "2 hours",
-            "5 minutes and 9 seconds for the Linux instance and 5 hours for the CentOS instance.",
-            "3 hours for the Linux instance and 4 hours",
-            "23 minutes and 7 seconds for the CentOS instance."
+            "2 hours, 5 minutes and 9 seconds for the Linux instance and 4 hours, 23 minutes and 7 seconds for the CentOS instance.",
+            "2 hours, 5 minutes and 9 seconds for the Linux instance and 5 hours for the CentOS instance.",
+            "3 hours for the Linux instance and 4 hours, 23 minutes and 7 seconds for the CentOS instance."
         ],
         "correctAnswers": [
-            "2 hours",
-            "5 minutes and 9 seconds for the Linux instance and 5 hours for the CentOS instance."
+            "2 hours, 5 minutes and 9 seconds for the Linux instance and 5 hours for the CentOS instance."
         ],
         "explanation": "",
         "category": "Compute"
@@ -3326,10 +3304,7 @@
         "questionText": "A company is seeking to better secure its AWS account from unauthorized access. Which of the below options can the customer use to achieve this goal?",
         "options": [
             "Restrict any API call made through SDKs or CLI.",
-            "Create one IAM account for each department in the company (Development",
-            "QA",
-            "Production)",
-            "and share it across all staff in that department.",
+            "Create one IAM account for each department in the company (Development, QA, Production) and share it across all staff in that department.",
             "Require Multi-Factor Authentication (MFA) for all IAM User access.",
             "Set up two login passwords."
         ],
@@ -3406,8 +3381,7 @@
         "questionText": "The TCO gap between AWS infrastructure and traditional infrastructure has widened over the recent years. Which of the following could be the reason for that?",
         "options": [
             "AWS helps customers invest more in capital expenditures.",
-            "AWS automates all infrastructure operations",
-            "so customers save more on human resources costs.",
+            "AWS automates all infrastructure operations so customers save more on human resources costs.",
             "AWS continues to lower the cost of cloud computing for its customers.",
             "AWS secures AWS resources at no additional charge."
         ],
@@ -3883,19 +3857,14 @@
         "id": "b09d292a-5642-4a05-85b1-41c1fefc7e73",
         "questionText": "Which of the following are true regarding the languages that are supported on AWS Lambda? (Choose TWO)",
         "options": [
-            "Lambda only supports Python and Node.js",
-            "but third party plugins are available to convert code in other languages to these formats.",
-            "Lambda natively supports a number of programming languages such as Node.js",
-            "Python",
-            "and Java.",
+            "Lambda only supports Python and Node.js, but third party plugins are available to convert code in other languages to these formats.",
+            "Lambda natively supports a number of programming languages such as Node.js, Python and Java.",
             "Lambda is AWS\u2019 proprietary programming language for microservices.",
             "Lambda doesn\u2019t support programming languages; it is a serverless compute service.",
             "Lambda can support any programming language using an API."
         ],
         "correctAnswers": [
-            "Lambda natively supports a number of programming languages such as Node.js",
-            "Python",
-            "and Java.",
+            "Lambda natively supports a number of programming languages such as Node.js, Python and Java.",
             "Lambda can support any programming language using an API."
         ],
         "explanation": "",
@@ -3924,14 +3893,11 @@
         "options": [
             "Edge locations are located in separate Availability Zones worldwide to serve global customers.",
             "An availability zone exists within an edge location to distribute content globally with low latency.",
-            "An Availability Zone is a geographic location where AWS provides multiple",
-            "physically separated and isolated edge locations.",
-            "An AWS Availability Zone is an isolated location within an AWS Region",
-            "however edge locations are located in multiple cities worldwide."
+            "An Availability Zone is a geographic location where AWS provides multiple, physically separated and isolated edge locations.",
+            "An AWS Availability Zone is an isolated location within an AWS Region, however edge locations are located in multiple cities worldwide."
         ],
         "correctAnswers": [
-            "An AWS Availability Zone is an isolated location within an AWS Region",
-            "however edge locations are located in multiple cities worldwide."
+            "An AWS Availability Zone is an isolated location within an AWS Region, however edge locations are located in multiple cities worldwide."
         ],
         "explanation": "",
         "category": "Compute"
@@ -4069,9 +4035,9 @@
         "questionText": "A company\u2019s AWS workflow requires that it periodically perform large-scale image and video processing jobs. The customer is seeking to minimize cost and has stated that the amount of time it takes to process these jobs is not critical, but that cost minimization is the most important factor in designing the solution. Which EC2 instance class is best suited for this processing?",
         "options": [
             "EC2 On-Demand Instances.",
-            "EC2 Reserved Instances     - No Upfront.",
+            "EC2 Reserved Instances - No Upfront.",
             "EC2 Spot Instances.",
-            "EC2 Reserved Instances     - All Upfront."
+            "EC2 Reserved Instances - All Upfront."
         ],
         "correctAnswers": [
             "EC2 Spot Instances."
@@ -4284,8 +4250,7 @@
         "options": [
             "Attach a separate IAM policy for each individual account.",
             "Apply the Principle of Least Privilege.",
-            "For security purposes",
-            "you should not grant any permission to the DevOps team.",
+            "For security purposes, you should not grant any permission to the DevOps team.",
             "Create six different IAM passwords."
         ],
         "correctAnswers": [
@@ -4315,23 +4280,13 @@
         "id": "1848d9c8-b4b4-4751-8858-d92b324e05de",
         "questionText": "Who from the following will get the largest discount?",
         "options": [
-            "A user who chooses to buy On-demand",
-            "Convertible",
-            "Partial upfront instances.",
-            "A user who chooses to buy Reserved",
-            "Convertible",
-            "All upfront instances.",
-            "A user who chooses to buy Reserved",
-            "Standard",
-            "No upfront instances.",
-            "A user who chooses to buy Reserved",
-            "Standard",
-            "All upfront instances."
+            "A user who chooses to buy On-demand, Convertible, Partial upfront instances.",
+            "A user who chooses to buy Reserved, Convertible, All upfront instances.",
+            "A user who chooses to buy Reserved, Standard, No upfront instances.",
+            "A user who chooses to buy Reserved, Standard, All upfront instances."
         ],
         "correctAnswers": [
-            "A user who chooses to buy Reserved",
-            "Standard",
-            "All upfront instances."
+            "A user who chooses to buy Reserved, Standard, All upfront instances."
         ],
         "explanation": "",
         "category": "Compute"
@@ -4356,8 +4311,7 @@
         "questionText": "What does the term \u201cEconomies of scale\u201d mean?",
         "options": [
             "It means that you save more when you consume more.",
-            "It means as more time passes using AWS",
-            "you pay more for its services.",
+            "It means as more time passes using AWS, you pay more for its services.",
             "It means that AWS will continuously lower costs as it grows.",
             "It means that you have the ability to pay as you go."
         ],
@@ -4498,16 +4452,12 @@
             "Enables you to backup extremely large amounts of data at very low costs.",
             "Enables you to move Exabyte-scale data from on-premises datacenters into AWS.",
             "Enables you to analyze and process extremely large amounts of data in a timely manner.",
-            "Enables you to easily run and scale Apache Spark",
-            "Hadoop",
-            "and other Big Data frameworks.",
+            "Enables you to easily run and scale Apache Spark, Hadoop, and other Big Data frameworks.",
             "Enables you to easily run and manage Docker containers."
         ],
         "correctAnswers": [
             "Enables you to analyze and process extremely large amounts of data in a timely manner.",
-            "Enables you to easily run and scale Apache Spark",
-            "Hadoop",
-            "and other Big Data frameworks."
+            "Enables you to easily run and scale Apache Spark, Hadoop, and other Big Data frameworks."
         ],
         "explanation": "",
         "category": "Compute"
@@ -4519,13 +4469,11 @@
             "There is no chat feature in AWS support.",
             "The chat feature is available for all plans for an additional fee",
             "but you have to request it first.",
-            "At a minimum",
-            "upgrade to Business support plan.",
+            "At a minimum, upgrade to Business support plan.",
             "Upgrade from the Basic Support plan to Developer Support."
         ],
         "correctAnswers": [
-            "At a minimum",
-            "upgrade to Business support plan."
+            "At a minimum, upgrade to Business support plan."
         ],
         "explanation": "",
         "category": "Compute"
@@ -4549,18 +4497,13 @@
         "id": "cbfdb1cf-9864-46da-9bff-6fc6dd13c134",
         "questionText": "Which statement best describes the AWS Pay-As-You-Go pricing model?",
         "options": [
-            "With AWS",
-            "you replace low upfront expenses with large variable payments.",
-            "With AWS",
-            "you replace low upfront expenses with large fixed payments.",
-            "With AWS",
-            "you replace large upfront expenses with low fixed payments.",
-            "With AWS",
-            "you replace large capital expenses with low variable payments."
+            "With AWS, you replace low upfront expenses with large variable payments.",
+            "With AWS, you replace low upfront expenses with large fixed payments.",
+            "With AWS, you replace large upfront expenses with low fixed payments.",
+            "With AWS, you replace large capital expenses with low variable payments."
         ],
         "correctAnswers": [
-            "With AWS",
-            "you replace large capital expenses with low variable payments."
+            "With AWS, you replace large capital expenses with low variable payments."
         ],
         "explanation": "",
         "category": "Compute"
@@ -4616,9 +4559,7 @@
         "id": "66d27f59-bbcc-49a5-82d2-3e90c10d86a4",
         "questionText": "What is the main benefit of the AWS Storage Gateway service?",
         "options": [
-            "It automates the process of building",
-            "maintaining",
-            "and running ETL jobs.",
+            "It automates the process of building, maintaining, and running ETL jobs.",
             "It provides physical devices to migrate data from on premises to AWS.",
             "It allows integration of on-premises IT environments with Cloud Storage.",
             "It provides hardware-based key storage for regulatory compliance."
@@ -4664,17 +4605,12 @@
         "questionText": "Why are Serverless Architectures more economical than Server-based Architectures?",
         "options": [
             "Serverless Architectures use new powerful computing devices.",
-            "With the Server-based Architectures",
-            "compute resources continue to run all the time but with serverless architecture",
-            "compute resources are only used when code is being executed.",
-            "When you reserve serverless capacity",
-            "you will get large discounts compared to server reservation.",
+            "With the Server-based Architectures, compute resources continue to run all the time but with serverless architecture, compute resources are only used when code is being executed.",
+            "When you reserve serverless capacity, you will get large discounts compared to server reservation.",
             "With Serverless Architectures you have the ability to scale automatically up or down as demand changes."
         ],
         "correctAnswers": [
-            "With the Server-based Architectures",
-            "compute resources continue to run all the time but with serverless architecture",
-            "compute resources are only used when code is being executed."
+            "With the Server-based Architectures, compute resources continue to run all the time but with serverless architecture, compute resources are only used when code is being executed."
         ],
         "explanation": "",
         "category": "Compute"
@@ -4731,7 +4667,7 @@
         "questionText": "Which of the following can help secure your sensitive data in Amazon S3? (Choose TWO)",
         "options": [
             "Delete the encryption keys once your data is encrypted.",
-            "With AWS you do not need to worry about encryption.",
+            "With AWS, you do not need to worry about encryption.",
             "Enable S3 Encryption.",
             "Encrypt the data prior to uploading it.",
             "Delete all IAM users that have access to S3."
@@ -4779,7 +4715,7 @@
         "id": "54f66433-d711-437e-be61-da418da4fc0e",
         "questionText": "What does the Amazon CloudFront service provide? (Choose TWO)",
         "options": [
-            "Tracks user activity and APl usage.",
+            "Tracks user activity and API usage.",
             "Increases application availability by caching at the edge.",
             "Enables faster disaster recovery.",
             "Stores archived data at very low costs.",
@@ -5149,8 +5085,7 @@
         "id": "dc29c6b8-0846-4719-a0a3-294db8f33913",
         "questionText": "You have developed a web application targeting a global audience. Which of the following will help you achieve the highest redundancy and fault tolerance from an infrastructure perspective?",
         "options": [
-            "There is no need to architect for these capabilities in AWS",
-            "as AWS is redundant by default.",
+            "There is no need to architect for these capabilities in AWS, as AWS is redundant by default.",
             "Deploy the application in a single Availability Zone.",
             "Deploy the application in multiple Availability Zones in a single AWS region.",
             "Deploy the application in muitiple Availability Zones in multiple AWS regions."
@@ -5216,7 +5151,7 @@
         "options": [
             "AWS Bulletins.",
             "AWS TAM.",
-            "AWS Support APl.",
+            "AWS Support API.",
             "AWS Security Blog.",
             "AWS Classroom Training."
         ],
@@ -5292,8 +5227,7 @@
         "questionText": "How does AWS help customers achieve compliance in the cloud?",
         "options": [
             "It's not possible to meet regulatory compliance requirements in the Cloud.",
-            "AWS applies the most common Cloud security standards",
-            "and is responsible for complying with customers\u2019 applicable laws and regulations.",
+            "AWS applies the most common Cloud security standards, and is responsible for complying with customers' applicable laws and regulations.",
             "AWS has many common assurance certifications such as ISO 9001 and HIPAA.",
             "Many AWS services are assessed regularly to comply with local laws and regulations."
         ],
@@ -5568,7 +5502,7 @@
     },
     {
         "id": "1eebbcbf-4788-44e6-9fe2-ba365c5ff444",
-        "questionText": "What does the AWS \\\"Business\\\" support plan provide? (Choose TWO)",
+        "questionText": "What does the AWS \"Business\" support plan provide? (Choose TWO)",
         "options": [
             "Access to the full set of Trusted Advisor checks.",
             "Support Concierge Service.",
@@ -5634,18 +5568,14 @@
         "id": "2886cf16-79d2-464f-a02c-8f81afde8fb3",
         "questionText": "Which statement is true regarding AWS pricing? (Choose TWO)",
         "options": [
-            "With the AWS pay-as-you-go pricing model",
-            "you don't have to pay any upfront fee.",
+            "With the AWS pay-as-you-go pricing model, you don't have to pay any upfront fee.",
             "You have no responsibility for third-party software license costs.",
             "You only pay for the individual services that you need with no long-term contracts.",
-            "For some services",
-            "you have to pay a startup fee in order to get the service running.",
-            "There are no reservations on AWS",
-            "you only pay for what you use."
+            "For some services, you have to pay a startup fee in order to get the service running.",
+            "There are no reservations on AWS, you only pay for what you use."
         ],
         "correctAnswers": [
-            "With the AWS pay-as-you-go pricing model",
-            "you don't have to pay any upfront fee.",
+            "With the AWS pay-as-you-go pricing model, you don't have to pay any upfront fee.",
             "You only pay for the individual services that you need with no long-term contracts."
         ],
         "explanation": "",
@@ -5732,21 +5662,15 @@
         "id": "6c37e7f0-5d06-4587-ac99-199b22fb5efc",
         "questionText": "What are the main differences between an IAM user and an IAM role in AWS? (Choose TWO)",
         "options": [
-            "An IAM user is uniquely associated with only one person",
-            "however a role is intended to be assumable by anyone who needs it.",
-            "An IAM user has permanent credentials associated with it",
-            "however a role has temporary credentials associated with it.",
+            "An IAM user is uniquely associated with only one person, however a role is intended to be assumable by anyone who needs it.",
+            "An IAM user has permanent credentials associated with it, however a role has temporary credentials associated with it.",
             "IAM users are more cost effective than IAM roles.",
-            "Arole is uniquely associated with only one person",
-            "however an IAM user is intended to be assumable by anyone who needs it.",
-            "An IAM user has temporary credentials associated withit",
-            "however a role has permanent credentials associated with it."
+            "A role is uniquely associated with only one person, however an IAM user is intended to be assumable by anyone who needs it.",
+            "An IAM user has temporary credentials associated with it, however a role has permanent credentials associated with it."
         ],
         "correctAnswers": [
-            "An IAM user is uniquely associated with only one person",
-            "however a role is intended to be assumable by anyone who needs it.",
-            "An IAM user has permanent credentials associated with it",
-            "however a role has temporary credentials associated with it."
+            "An IAM user is uniquely associated with only one person, however a role is intended to be assumable by anyone who needs it.",
+            "An IAM user has permanent credentials associated with it, however a role has temporary credentials associated with it."
         ],
         "explanation": "",
         "category": "Compute"
@@ -6133,9 +6057,9 @@
         "id": "f98d4330-6fdd-47e9-ae73-d7bf16a4f280",
         "questionText": "What is the maximum amount of data that can be stored in S3 in a single AWS account?",
         "options": [
-            "100 PetaBytes.",
+            "100 Petabytes.",
             "Virtually unlimited storage.",
-            "5TeraBytes.",
+            "5 Terabytes.",
             "10 Exabytes."
         ],
         "correctAnswers": [
@@ -6178,18 +6102,13 @@
         "id": "611a8bea-db59-46fb-8390-cbc66c9e48be",
         "questionText": "Which of the following steps should be taken by a customer when conducting penetration testing on AWS?",
         "options": [
-            "Conduct penetration testing using Amazon Inspector",
-            "and then notify AWS support.",
-            "Request and wait for approval from the customer\u2019s internal security team",
-            "and then conduct testing.",
-            "Notify AWS support",
-            "and then conduct testing immediately.",
-            "Request and wait for approval from AWS support",
-            "and then conduct testing."
+            "Conduct penetration testing using Amazon Inspector, and then notify AWS support.",
+            "Request and wait for approval from the customer's internal security team, and then conduct testing.",
+            "Notify AWS support, and then conduct testing immediately.",
+            "Request and wait for approval from AWS support, and then conduct testing."
         ],
         "correctAnswers": [
-            "Request and wait for approval from AWS support",
-            "and then conduct testing."
+            "Request and wait for approval from AWS support, and then conduct testing."
         ],
         "explanation": "",
         "category": "Compute"
@@ -6916,9 +6835,7 @@
             "Use AWS Budgets on each account to pay only to budget.",
             "Contact AWS Support for a monthly bill.",
             "Create an AWS Organization from the payer account and invite the other accounts to join.",
-            "Put all invoices into one Amazon Simple Storage Service (Amazon S3) bucket",
-            "load data into Amazon Redshift",
-            "and then run a billing report."
+            "Put all invoices into one Amazon Simple Storage Service (Amazon S3) bucket, load data into Amazon Redshift, and then run a billing report."
         ],
         "correctAnswers": [
             "Create an AWS Organization from the payer account and invite the other accounts to join."
@@ -6977,7 +6894,7 @@
         "id": "3364da71-8def-4a2f-b920-5ed816bc1588",
         "questionText": "Which statement best describes Elastic Load Balancing?",
         "options": [
-            "It translates a domain name into an IP address using DNC.",
+            "It translates a domain name into an IP address using DNS.",
             "It distributes incoming application traffic across one or more Amazon EC2 instances.",
             "It collects metrics on connected Amazon EC2 instances.",
             "It automatically adjusts the number of Amazon EC2 instances to support incoming traffic."
@@ -7101,23 +7018,13 @@
         "id": "7899bac6-03cc-42d7-8c9a-4a84b529ac17",
         "questionText": "Which of the following Reserved Instance (RI) pricing models provides the highest average savings compared to On-Demand pricing?",
         "options": [
-            "One-year",
-            "No Upfront",
-            "Standard RI pricing.",
-            "One-year",
-            "All Upfront",
-            "Convertible RI pricing.",
-            "Three-year",
-            "All Upfront",
-            "Standard RI pricing.",
-            "Three-year",
-            "No Upfront",
-            "Convertible RI pricing."
+            "One-year, No Upfront, Standard RI pricing.",
+            "One-year, All Upfront, Convertible RI pricing.",
+            "Three-year, All Upfront, Standard RI pricing.",
+            "Three-year, No Upfront, Convertible RI pricing."
         ],
         "correctAnswers": [
-            "Three-year",
-            "All Upfront",
-            "Standard RI pricing."
+            "Three-year, All Upfront, Standard RI pricing."
         ],
         "explanation": "",
         "category": "Compute"
@@ -7173,13 +7080,13 @@
         "id": "05be4b22-701b-49a6-81ca-1d0876357cc3",
         "questionText": "Which of the following is the customer\u2019s responsibility under the AWS shared responsibility model?",
         "options": [
-            "Patching underlying infrastructure",
-            "Physical security",
-            "Patching Amazon EC2 instances",
-            "Patching network infrastructure"
+            "Patching underlying infrastructure.",
+            "Physical security.",
+            "Patching Amazon EC2 instances.",
+            "Patching network infrastructure."
         ],
         "correctAnswers": [
-            "Patching Amazon EC2 instances"
+            "Patching Amazon EC2 instances."
         ],
         "explanation": "",
         "category": "Compute"
@@ -8563,12 +8470,10 @@
             "A company wants to move its main website to AWS from an on-premises web server.",
             "A company has a number of application services whose Service Level Agreement (SLA) requires 99.999% uptime.",
             "A company\u2019s heavily used legacy database is currently running on-premises.",
-            "A company has a number of infrequent",
-            "interruptible jobs that are currently using On-Demand Instances."
+            "A company has a number of infrequent, interruptible jobs that are currently using On-Demand Instances."
         ],
         "correctAnswers": [
-            "A company has a number of infrequent",
-            "interruptible jobs that are currently using On-Demand Instances."
+            "A company has a number of infrequent, interruptible jobs that are currently using On-Demand Instances."
         ],
         "explanation": "",
         "category": "Compute"
@@ -9282,14 +9187,12 @@
             "The ability to receive one bill for multiple accounts.",
             "Service limits increasing by default in all accounts.",
             "A fixed discount on the monthly bill.",
-            "Potential volume discounts",
-            "as usage in all accounts is combined.",
+            "Potential volume discounts, as usage in all accounts is combined.",
             "The automatic extension of the master account\u2019s AWS support plan to all accounts."
         ],
         "correctAnswers": [
             "The ability to receive one bill for multiple accounts.",
-            "Potential volume discounts",
-            "as usage in all accounts is combined."
+            "Potential volume discounts, as usage in all accounts is combined."
         ],
         "explanation": "",
         "category": "Compute"
@@ -9313,13 +9216,13 @@
         "id": "e560b46b-987b-4334-a377-2aa4b0c6d212",
         "questionText": "The use of what AWS feature or service allows companies to track and categorize spending on a detailed level?",
         "options": [
-            "Cost allocation tags",
-            "Consolidated billing",
-            "AWS Budgets",
-            "AWS Marketplace"
+            "Cost allocation tags.",
+            "Consolidated billing.",
+            "AWS Budgets.",
+            "AWS Marketplace."
         ],
         "correctAnswers": [
-            "AWS Marketplace"
+            "AWS Marketplace."
         ],
         "explanation": "",
         "category": "Compute"
@@ -9328,13 +9231,13 @@
         "id": "cb439a5d-38b3-42fd-a683-8963da4dab84",
         "questionText": "Which storage service can be used as a low-cost option for hosting static websites?",
         "options": [
-            "Amazon Glacier",
-            "Amazon DynamoDB",
-            "Amazon Elastic File System (Amazon EFS)",
-            "Amazon Simple Storage Service (Amazon S3)"
+            "Amazon Glacier.",
+            "Amazon DynamoDB.",
+            "Amazon Elastic File System (Amazon EFS).",
+            "Amazon Simple Storage Service (Amazon S3)."
         ],
         "correctAnswers": [
-            "Amazon Simple Storage Service (Amazon S3)"
+            "Amazon Simple Storage Service (Amazon S3)."
         ],
         "explanation": "",
         "category": "Compute"
@@ -9343,13 +9246,13 @@
         "id": "4c40e373-5031-4270-b4e7-31fdec66089b",
         "questionText": "How do customers benefit from Amazon's massive economies of scale?",
         "options": [
-            "Periodic price reductions as the result of Amazon's operational efficiencies",
-            "New Amazon EC2 instance types providing the latest hardware",
-            "The ability to scale up and down when needed",
-            "Increased reliability in the underlying hardware of Amazon EC2 instances"
+            "Periodic price reductions as the result of Amazon's operational efficiencies.",
+            "New Amazon EC2 instance types providing the latest hardware.",
+            "The ability to scale up and down when needed.",
+            "Increased reliability in the underlying hardware of Amazon EC2 instances."
         ],
         "correctAnswers": [
-            "Periodic price reductions as the result of Amazon's operational efficiencies"
+            "Periodic price reductions as the result of Amazon's operational efficiencies."
         ],
         "explanation": "",
         "category": "Compute"
@@ -9358,13 +9261,13 @@
         "id": "8ef830d7-99bb-4431-9912-a0fa503c4285",
         "questionText": "What will help a company perform a cost benefit analysis of migrating to the AWS Cloud?",
         "options": [
-            "Cost Explorer",
-            "AWS Total Cost of Ownership (TCO) Calculator",
-            "AWS Simple Monthly Calculator",
-            "AWS Trusted Advisor"
+            "Cost Explorer.",
+            "AWS Total Cost of Ownership (TCO) Calculator.",
+            "AWS Simple Monthly Calculator.",
+            "AWS Trusted Advisor."
         ],
         "correctAnswers": [
-            "AWS Total Cost of Ownership (TCO) Calculator"
+            "AWS Total Cost of Ownership (TCO) Calculator."
         ],
         "explanation": "",
         "category": "Compute"
@@ -9388,13 +9291,13 @@
         "id": "a3c4524f-e081-4dd2-90aa-8d1031e41770",
         "questionText": "Under the AWS shared responsibility model, which of the following is an example of security in the AWS Cloud?",
         "options": [
-            "Managing edge locations",
-            "Physical security",
-            "Firewall configuration",
-            "Global infrastructure"
+            "Managing edge locations.",
+            "Physical security.",
+            "Firewall configuration.",
+            "Global infrastructure."
         ],
         "correctAnswers": [
-            "Firewall configuration"
+            "Firewall configuration."
         ],
         "explanation": "",
         "category": "Compute"
