@@ -161,7 +161,6 @@ struct LandingScreenView: View {
                     .cornerRadius(8)
                 }
                 Spacer()
-                Text("Built by CoffeeDevs LLC 2025")
             }
             .padding()
             .alert("Watch an Ad to Unlock More Quizzes", isPresented: $showAdAlert) {
