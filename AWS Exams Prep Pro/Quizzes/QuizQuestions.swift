@@ -11,6 +11,12 @@ class QuizQuestions: ObservableObject {
         case "software-architect-associate-questions":
             switchToSoftwareArchitectAssociate()
             break
+        case "developer-associate-questions":
+            switchToDeveloperAssociate()
+            break
+        case "sysops-associate-questions":
+            switchToSysOpsAssociate()
+            break
         default:
             switchToCloudPractitioner()
         }
@@ -26,6 +32,8 @@ class QuizQuestions: ObservableObject {
 
     private let cloudPractitionerQuestions = "cloud-practitioner-questions"
     private let softwareArchitectAssociateQuestions = "software-architect-associate-questions"
+    private let developerAssociateQuestions = "developer-associate-questions"
+    private let sysOpsAssociateQuestions = "sysops-associate-questions"
 
     func loadQuestionSet(_ setName: String) {
         allQuizQuestions = QuestionLoader.loadQuestions(from: setName)
@@ -37,5 +45,13 @@ class QuizQuestions: ObservableObject {
 
     func switchToSoftwareArchitectAssociate() {
         loadQuestionSet(softwareArchitectAssociateQuestions)
+    }
+
+    func switchToDeveloperAssociate() {
+        loadQuestionSet(developerAssociateQuestions)
+    }
+
+    func switchToSysOpsAssociate() {
+        loadQuestionSet(sysOpsAssociateQuestions)
     }
 }

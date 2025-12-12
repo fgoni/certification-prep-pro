@@ -198,6 +198,10 @@ struct LandingScreenView: View {
                     quizData.switchToCloudPractitioner()
                 case .softwareArchitectAssociate:
                     quizData.switchToSoftwareArchitectAssociate()
+                case .developerAssociate:
+                    quizData.switchToDeveloperAssociate()
+                case .sysOpsAssociate:
+                    quizData.switchToSysOpsAssociate()
                 }
             }
             .onAppear {
@@ -207,6 +211,10 @@ struct LandingScreenView: View {
                     quizData.switchToCloudPractitioner()
                 case .softwareArchitectAssociate:
                     quizData.switchToSoftwareArchitectAssociate()
+                case .developerAssociate:
+                    quizData.switchToDeveloperAssociate()
+                case .sysOpsAssociate:
+                    quizData.switchToSysOpsAssociate()
                 }
             }
         }
@@ -280,6 +288,8 @@ struct ExamSelectorView: View {
 enum QuestionSet: CaseIterable {
     case cloudPractitioner
     case softwareArchitectAssociate
+    case developerAssociate
+    case sysOpsAssociate
     
     var title: String {
         switch self {
@@ -287,6 +297,10 @@ enum QuestionSet: CaseIterable {
             return "AWS Cloud Practitioner"
         case .softwareArchitectAssociate:
             return "AWS Solutions Architect Associate"
+        case .developerAssociate:
+            return "AWS Developer Associate"
+        case .sysOpsAssociate:
+            return "AWS SysOps Administrator Associate"
         }
     }
 }

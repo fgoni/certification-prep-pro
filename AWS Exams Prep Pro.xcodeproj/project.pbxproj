@@ -29,6 +29,8 @@
 		52BD75662D6BEC3D00F24669 /* software-architect-associate-questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 52BD75652D6BEC3D00F24669 /* software-architect-associate-questions.json */; };
 		52BD75682D6C783600F24669 /* QuestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BD75672D6C783600F24669 /* QuestionLoader.swift */; };
 		52BD756A2D6C7CFF00F24669 /* cloud-practitioner-questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 52BD75692D6C7CFF00F24669 /* cloud-practitioner-questions.json */; };
+		52E7260B2D8F123400F24669 /* developer-associate-questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 52E7260A2D8F123400F24669 /* developer-associate-questions.json */; };
+		52E7260D2D8F1C2F00F24669 /* sysops-associate-questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 52E7260C2D8F1C2F00F24669 /* sysops-associate-questions.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		52BD75652D6BEC3D00F24669 /* software-architect-associate-questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "software-architect-associate-questions.json"; sourceTree = "<group>"; };
 		52BD75672D6C783600F24669 /* QuestionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLoader.swift; sourceTree = "<group>"; };
 		52BD75692D6C7CFF00F24669 /* cloud-practitioner-questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "cloud-practitioner-questions.json"; sourceTree = "<group>"; };
+		52E7260A2D8F123400F24669 /* developer-associate-questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "developer-associate-questions.json"; sourceTree = "<group>"; };
+		52E7260C2D8F1C2F00F24669 /* sysops-associate-questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "sysops-associate-questions.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,8 @@
 				524B99A02C6D1DF900BABD60 /* QuizResult.swift */,
 				524B99A22C6D1E1400BABD60 /* QuizResultManager.swift */,
 				52BD75692D6C7CFF00F24669 /* cloud-practitioner-questions.json */,
+				52E7260A2D8F123400F24669 /* developer-associate-questions.json */,
+				52E7260C2D8F1C2F00F24669 /* sysops-associate-questions.json */,
 			);
 			path = Quizzes;
 			sourceTree = "<group>";
@@ -295,12 +301,14 @@
 		521093082C69349300218BA2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
-			files = (
-				52647E412D4C4F1E0041D589 /* Assets.xcassets in Resources */,
-				521093172C69349400218BA2 /* Preview Assets.xcassets in Resources */,
-				52BD75662D6BEC3D00F24669 /* software-architect-associate-questions.json in Resources */,
-				52BD756A2D6C7CFF00F24669 /* cloud-practitioner-questions.json in Resources */,
-			);
+				files = (
+					52647E412D4C4F1E0041D589 /* Assets.xcassets in Resources */,
+					521093172C69349400218BA2 /* Preview Assets.xcassets in Resources */,
+					52BD75662D6BEC3D00F24669 /* software-architect-associate-questions.json in Resources */,
+					52BD756A2D6C7CFF00F24669 /* cloud-practitioner-questions.json in Resources */,
+					52E7260B2D8F123400F24669 /* developer-associate-questions.json in Resources */,
+					52E7260D2D8F1C2F00F24669 /* sysops-associate-questions.json in Resources */,
+				);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5210931A2C69349400218BA2 /* Resources */ = {
