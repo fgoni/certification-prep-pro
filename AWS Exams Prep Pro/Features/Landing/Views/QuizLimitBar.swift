@@ -8,18 +8,16 @@ struct QuizLimitBar: View {
         HStack(spacing: 12) {
             StatusCardView(
                 icon: "bolt.fill",
-                iconColor: .white,
-                label: "Credits",
-                value: "\(quizLimitManager.remainingAttempts) of 3 Remaining",
-                backgroundColor: Color.orange
+                type: .credits,
+                label: "Number of free quizzes remaining",
+                value: "\(quizLimitManager.remainingAttempts)/3"
             )
 
             StatusCardView(
                 icon: "clock.fill",
-                iconColor: .white,
-                label: "Next Refill",
-                value: quizLimitManager.timeUntilReset(),
-                backgroundColor: Color.blue
+                type: .timer,
+                label: "Time until next free quiz",
+                value: quizLimitManager.timeUntilReset()
             )
         }
     }

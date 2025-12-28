@@ -84,12 +84,12 @@ struct LandingScreenView: View {
                         Spacer()
                         Image(systemName: "arrow.right.circle.fill")
                     }
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 8)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 14)
                     .frame(maxWidth: .infinity)
-                    .background(QuizLimitManager.shared.canStartQuiz() ? Color.blue : Color(.systemGray5))
-                    .foregroundColor(QuizLimitManager.shared.canStartQuiz() ? .white : .gray)
-                    .cornerRadius(8)
+                    .background(Color(.systemGray6))
+                    .foregroundColor(QuizLimitManager.shared.canStartQuiz() ? .primary : .secondary)
+                    .cornerRadius(12)
                 }
                 .navigationDestination(isPresented: $isFullQuizActive) {
                     QuizView(
@@ -124,12 +124,12 @@ struct LandingScreenView: View {
                         Spacer()
                         Image(systemName: "arrow.right.circle.fill")
                     }
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 8)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 14)
                     .frame(maxWidth: .infinity)
-                    .background(QuizLimitManager.shared.canStartQuiz() ? Color.blue : Color(.systemGray5))
-                    .foregroundColor(QuizLimitManager.shared.canStartQuiz() ? .white : .gray)
-                    .cornerRadius(8)
+                    .background(Color(.systemGray6))
+                    .foregroundColor(QuizLimitManager.shared.canStartQuiz() ? .primary : .secondary)
+                    .cornerRadius(12)
                 }
                 .navigationDestination(isPresented: $isQuickQuizActive) {
                     QuizView(
@@ -224,29 +224,54 @@ struct LandingScreenView: View {
 // MARK: - Quiz Limit Bar
 struct QuizLimitBar: View {
     @StateObject private var quizLimitManager = QuizLimitManager.shared
-    
+
     var body: some View {
         HStack(spacing: 12) {
-            HStack(spacing: 4) {
-                Image(systemName: "bolt.fill")
-                    .foregroundColor(.yellow)
-                Text("\(quizLimitManager.remainingAttempts)/3")
-                    .font(.subheadline)
-                    .fontWeight(.medium)
+            // Credits Card
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(spacing: 6) {
+                    Image(systemName: "bolt.fill")
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundColor(Color(red: 1.0, green: 0.5, blue: 0))
+
+                    Text("CREDITS")
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundColor(Color(red: 1.0, green: 0.5, blue: 0))
+                }
+
+                Text("\(quizLimitManager.remainingAttempts) of 3 Remaining")
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(Color(red: 0.8, green: 0.3, blue: 0))
             }
-            
-            HStack(spacing: 4) {
-                Image(systemName: "clock.fill")
-                    .foregroundColor(.blue)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 14)
+            .background(Color(red: 1.0, green: 0.95, blue: 0.9))
+            .cornerRadius(16)
+
+            // Next Refill Card
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(spacing: 6) {
+                    Image(systemName: "clock.fill")
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundColor(Color(red: 0.2, green: 0.5, blue: 1.0))
+
+                    Text("NEXT REFILL")
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundColor(Color(red: 0.2, green: 0.5, blue: 1.0))
+                }
+
                 Text(quizLimitManager.timeUntilReset())
-                    .font(.subheadline)
-                    .fontWeight(.medium)
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(Color(red: 0.1, green: 0.35, blue: 0.95))
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 14)
+            .background(Color(red: 0.95, green: 0.97, blue: 1.0))
+            .cornerRadius(16)
         }
-        .padding(.vertical, 4)
-        .padding(.horizontal, 8)
-        .background(Color(.systemGray6))
-        .cornerRadius(8)
+        .padding(.horizontal, 16)
     }
 }
 

@@ -7,7 +7,7 @@ iOS app for AWS certification exam preparation with interactive quizzes and prog
 **Important:** After completing iOS changes, Claude automatically tests the app in the simulator:
 
 ```bash
-~/.claude/scripts/run-ios-simulator.sh -p . -d "iPhone 17"
+~/.claude/scripts/run-ios-simulator.sh -p . -d "iPhone 16"
 ```
 
 This means:
@@ -18,8 +18,8 @@ This means:
 
 **You can test on different devices:**
 ```bash
-# iPhone 17 (recommended)
-~/.claude/scripts/run-ios-simulator.sh -p . -d "iPhone 17"
+# iPhone 15
+~/.claude/scripts/run-ios-simulator.sh -p . -d "iPhone 15"
 
 # iPhone 16 Pro
 ~/.claude/scripts/run-ios-simulator.sh -p . -d "iPhone 16 Pro"
@@ -229,7 +229,7 @@ Use SwiftData for persistent app state:
 
 After Claude completes work:
 ```bash
-~/.claude/scripts/run-ios-simulator.sh -p . -d "iPhone 17"
+~/.claude/scripts/run-ios-simulator.sh -p . -d "iPhone 16"
 ```
 
 The app will:
@@ -337,7 +337,7 @@ static let `default` = AdConfiguration(
 2. Make code changes
    ↓
 3. Claude runs simulator:
-   ~/.claude/scripts/run-ios-simulator.sh -p . -d "iPhone 17"
+   ~/.claude/scripts/run-ios-simulator.sh -p . -d "iPhone 16"
    ↓
 4. App launches automatically
    ↓

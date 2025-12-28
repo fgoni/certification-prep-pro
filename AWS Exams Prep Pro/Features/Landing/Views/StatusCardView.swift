@@ -1,56 +1,132 @@
 import SwiftUI
 
+/// Status card types with associated colors
+enum StatusType {
+    case credits
+    case timer
+
+    var backgroundColor: Color {
+        switch self {
+        case .credits:
+            return AppTheme.Colors.creditsCardBackground
+        case .timer:
+            return AppTheme.Colors.timerCardBackground
+        }
+    }
+
+    var iconColor: Color {
+        switch self {
+        case .credits:
+            return AppTheme.Colors.creditsIconColor
+        case .timer:
+            return AppTheme.Colors.timerIconColor
+        }
+    }
+
+    var iconBackground: Color {
+        switch self {
+        case .credits:
+            return AppTheme.Colors.creditsIconBackground
+        case .timer:
+            return AppTheme.Colors.timerIconBackground
+        }
+    }
+
+    var textColor: Color {
+        switch self {
+        case .credits:
+            return AppTheme.Colors.creditsCardText
+        case .timer:
+            return AppTheme.Colors.timerCardText
+        }
+    }
+}
+
 /// A reusable card component for displaying status information with colored backgrounds
 /// Used for credits counter and timer display
 struct StatusCardView: View {
     let icon: String
-    let iconColor: Color
+    let type: StatusType
     let label: String
     let value: String
-    let backgroundColor: Color
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            HStack(spacing: 4) {
-                Image(systemName: icon)
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundColor(iconColor)
+        VStack(alignment: .center, spacing: 14) {
+            HStack(spacing: 12) {
+                // Icon container
+                ZStack {
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(type.iconBackground)
+                        .frame(width: 28, height: 28)
+
+                    Image(systemName: icon)
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(type.iconColor)
+                }
 
                 Text(label.uppercased())
-                    .font(.system(size: 10, weight: .bold))
-                    .foregroundColor(.white.opacity(0.9))
+                    .font(.system(size: 12, weight: .bold))
+                    .tracking(0.5)
+                    .foregroundColor(type.iconColor)
+
+                Spacer()
             }
 
             Text(value)
-                .font(.system(size: 14, weight: .semibold))
-                .foregroundColor(.white)
+                .font(.system(size: 36, weight: .bold))
+                .tracking(0.3)
+                .foregroundColor(type.textColor)
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(.horizontal, 14)
-        .padding(.vertical, 10)
-        .background(backgroundColor)
-        .cornerRadius(12)
+        .frame(maxWidth: .infinity)
+        .padding(.horizontal, 20)
+        .padding(.vertical, 16)
+        .background(type.backgroundColor)
+        .cornerRadius(16)
     }
 }
 
-#Preview {
+#Preview("Light Mode") {
     VStack(spacing: 12) {
         HStack(spacing: 12) {
             StatusCardView(
                 icon: "bolt.fill",
-                iconColor: .white,
+                type: .credits,
                 label: "Credits",
-                value: "3 of 3 Remaining",
-                backgroundColor: Color.orange
+                value: "0 of 3 Remaining"
             )
 
             StatusCardView(
                 icon: "clock.fill",
-                iconColor: .white,
+                type: .timer,
                 label: "Next Refill",
-                value: "12:36",
-                backgroundColor: Color.blue
+                value: "12:36"
             )
         }
     }
     .padding()
+    .preferredColorScheme(.light)
+}
+
+#Preview("Dark Mode") {
+    VStack(spacing: 12) {
+        HStack(spacing: 12) {
+            StatusCardView(
+                icon: "bolt.fill",
+                type: .credits,
+                label: "Credits",
+                value: "0 of 3 Remaining"
+            )
+
+            StatusCardView(
+                icon: "clock.fill",
+                type: .timer,
+                label: "Next Refill",
+                value: "12:36"
+            )
+        }
+    }
+    .padding()
+    .background(AppTheme.Colors.backgroundPrimary.ignoresSafeArea())
+    .preferredColorScheme(.dark)
 }

@@ -1,9 +1,53 @@
 import SwiftUI
 
+/// Theme toggle button for switching between light/dark/system modes
+struct ThemeToggleButton: View {
+    @EnvironmentObject var themeManager: ThemeManager
+    @Environment(\.colorScheme) var systemColorScheme
+
+    private var currentScheme: ColorScheme {
+        themeManager.colorScheme ?? systemColorScheme
+    }
+
+    private var iconName: String {
+        switch currentScheme {
+        case .light:
+            return "moon.fill"
+        case .dark:
+            return "sun.max.fill"
+        @unknown default:
+            return "circle.lefthalf.filled"
+        }
+    }
+
+    var body: some View {
+        Button(action: {
+            withAnimation(.easeInOut(duration: 0.3)) {
+                themeManager.toggleTheme()
+            }
+        }) {
+            Image(systemName: iconName)
+                .font(.system(size: 20, weight: .semibold))
+                .foregroundColor(AppTheme.Colors.textPrimary)
+                .frame(width: 44, height: 44)
+                .background(AppTheme.Colors.cardBackground)
+                .clipShape(Circle())
+                .shadow(
+                    color: Color.black.opacity(currentScheme == .dark ? 0.3 : 0.1),
+                    radius: 8,
+                    x: 0,
+                    y: 4
+                )
+        }
+        .transition(.scale.combined(with: .opacity))
+    }
+}
+
 /// Landing screen - main entry point for the app
 /// Uses LandingViewModel for business logic and dependency injection
 struct LandingScreenView: View {
     @StateObject private var viewModel: LandingViewModel
+    @EnvironmentObject var themeManager: ThemeManager
 
     init(
         quizLimitProvider: QuizLimitProviderProtocol = QuizLimitManager.shared,
@@ -25,12 +69,15 @@ struct LandingScreenView: View {
                     Text("Certification Prep Pro")
                         .font(.largeTitle)
                         .fontWeight(.bold)
+                        .foregroundColor(AppTheme.Colors.textPrimary)
                         .multilineTextAlignment(.center)
                         .padding(.top, 10)
                         .fixedSize(horizontal: false, vertical: true)
 
                     Text(" for AWS")
                         .font(.headline)
+                        .foregroundColor(AppTheme.Colors.textSecondary)
+                        .opacity(0.6)
                         .multilineTextAlignment(.center)
                         .fixedSize(horizontal: false, vertical: true)
                 }
@@ -42,18 +89,20 @@ struct LandingScreenView: View {
                     HStack {
                         Text(viewModel.selectedQuestionSet.title)
                             .font(.headline)
+                            .foregroundColor(.white)
                         Spacer()
                         Image(systemName: "chevron.down")
+                            .foregroundColor(.white)
                     }
                     .padding()
-                    .background(Color(.systemGray6))
+                    .background(AppTheme.Colors.examSelectorBackground)
                     .cornerRadius(10)
                 }
 
                 // Show the number of questions loaded
                 Text("Loaded \(viewModel.quizData.allQuizQuestions.count) questions")
                     .font(.caption)
-                    .foregroundColor(.gray)
+                    .foregroundColor(AppTheme.Colors.textSecondary)
 
                 // Full Quiz Button
                 ActionCardView(
@@ -97,36 +146,40 @@ struct LandingScreenView: View {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Historical Results")
                                 .font(.system(size: 17, weight: .semibold))
-                                .foregroundColor(.primary)
+                                .foregroundColor(AppTheme.Colors.textPrimary)
 
                             Text("View your past quiz performances")
-                                .font(.system(size: 14))
-                                .foregroundColor(.secondary)
+                                .font(.system(size: 13))
+                                .foregroundColor(AppTheme.Colors.textSecondary)
                         }
 
                         Spacer()
 
-                        // Blue circular badge with chart icon
-                        ZStack {
-                            Circle()
-                                .fill(Color.blue)
-                                .frame(width: 36, height: 36)
-
-                            Image(systemName: "chart.bar.fill")
-                                .font(.system(size: 16))
-                                .foregroundColor(.white)
-                        }
+                        Image(systemName: "chart.bar.fill")
+                            .font(.system(size: 22, weight: .semibold))
+                            .foregroundColor(AppTheme.Colors.accentBlue)
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 14)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 18)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color(.systemGray6))
+                    .background(AppTheme.Colors.actionCardBackground)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(AppTheme.Colors.actionCardBorder, lineWidth: 1)
+                    )
                     .cornerRadius(12)
                 }
                 .buttonStyle(PlainButtonStyle())
                 Spacer()
             }
             .padding()
+            .background(AppTheme.Colors.backgroundPrimary.ignoresSafeArea())
+            .overlay(
+                ThemeToggleButton()
+                    .padding(.trailing, 16)
+                    .padding(.bottom, 16),
+                alignment: .bottomTrailing
+            )
             .alert("Watch an Ad to Unlock More Quizzes", isPresented: $viewModel.showAdAlert) {
                 Button("Watch Ad") {
                     viewModel.watchAdToUnlock()
@@ -152,6 +205,14 @@ struct LandingScreenView: View {
 }
 
 // MARK: - Preview
-#Preview {
+#Preview("Light Mode") {
     LandingScreenView()
+        .environmentObject(ThemeManager())
+        .preferredColorScheme(.light)
+}
+
+#Preview("Dark Mode") {
+    LandingScreenView()
+        .environmentObject(ThemeManager())
+        .preferredColorScheme(.dark)
 }

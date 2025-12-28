@@ -18,18 +18,18 @@ struct ActionCardView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(title)
                             .font(.system(size: 17, weight: .semibold))
-                            .foregroundColor(isEnabled ? .primary : .secondary)
+                            .foregroundColor(isEnabled ? AppTheme.Colors.textPrimary : AppTheme.Colors.textSecondary)
 
                         Text(subtitle)
-                            .font(.system(size: 14))
-                            .foregroundColor(.secondary)
+                            .font(.system(size: 13))
+                            .foregroundColor(AppTheme.Colors.textSecondary)
                     }
 
                     Spacer()
 
                     Image(systemName: icon)
                         .font(.system(size: 20, weight: .semibold))
-                        .foregroundColor(iconColor.opacity(isEnabled ? 1.0 : 0.5))
+                        .foregroundColor(isEnabled ? iconColor : AppTheme.Colors.textSecondary.opacity(0.5))
                 }
 
                 if showLock {
@@ -40,13 +40,17 @@ struct ActionCardView: View {
                         Text("Watch ad to unlock")
                             .font(.system(size: 12))
                     }
-                    .foregroundColor(.secondary)
+                    .foregroundColor(AppTheme.Colors.textSecondary)
                 }
             }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 14)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 18)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color(.systemGray6))
+            .background(AppTheme.Colors.actionCardBackground)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(AppTheme.Colors.actionCardBorder, lineWidth: 1)
+            )
             .cornerRadius(12)
         }
         .buttonStyle(PlainButtonStyle())

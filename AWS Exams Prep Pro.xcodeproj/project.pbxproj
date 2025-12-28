@@ -21,6 +21,7 @@
 		521093412C69462C00218BA2 /* QuizQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521093402C69462C00218BA2 /* QuizQuestions.swift */; };
 		521093442C6A4CA200218BA2 /* Confetti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521093432C6A4CA200218BA2 /* Confetti.swift */; };
 		521093462C6A4CAF00218BA2 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521093452C6A4CAF00218BA2 /* ConfettiView.swift */; };
+		521267E32F007BCA007C1F02 /* CertificationPrepPro.icon in Resources */ = {isa = PBXBuildFile; fileRef = 521267E22F007BCA007C1F02 /* CertificationPrepPro.icon */; };
 		524B999F2C6C2EB400BABD60 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B999E2C6C2EB400BABD60 /* LandingView.swift */; };
 		524B99A12C6D1DF900BABD60 /* QuizResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B99A02C6D1DF900BABD60 /* QuizResult.swift */; };
 		524B99A32C6D1E1400BABD60 /* QuizResultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B99A22C6D1E1400BABD60 /* QuizResultManager.swift */; };
@@ -68,6 +69,7 @@
 		521093402C69462C00218BA2 /* QuizQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestions.swift; sourceTree = "<group>"; };
 		521093432C6A4CA200218BA2 /* Confetti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confetti.swift; sourceTree = "<group>"; };
 		521093452C6A4CAF00218BA2 /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
+		521267E22F007BCA007C1F02 /* CertificationPrepPro.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = CertificationPrepPro.icon; sourceTree = "<group>"; };
 		524B999E2C6C2EB400BABD60 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		524B99A02C6D1DF900BABD60 /* QuizResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResult.swift; sourceTree = "<group>"; };
 		524B99A22C6D1E1400BABD60 /* QuizResultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultManager.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				521093152C69349400218BA2 /* Preview Content */,
 				520AEF1E2DB02D3800D93F0B /* AdManager.swift */,
 				520AEF1F2DB02D3800D93F0B /* QuizLimitManager.swift */,
+				521267E22F007BCA007C1F02 /* CertificationPrepPro.icon */,
 			);
 			path = "AWS Exams Prep Pro";
 			sourceTree = "<group>";
@@ -301,14 +304,15 @@
 		521093082C69349300218BA2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
-				files = (
-					52647E412D4C4F1E0041D589 /* Assets.xcassets in Resources */,
-					521093172C69349400218BA2 /* Preview Assets.xcassets in Resources */,
-					52BD75662D6BEC3D00F24669 /* software-architect-associate-questions.json in Resources */,
-					52BD756A2D6C7CFF00F24669 /* cloud-practitioner-questions.json in Resources */,
-					52E7260B2D8F123400F24669 /* developer-associate-questions.json in Resources */,
-					52E7260D2D8F1C2F00F24669 /* sysops-associate-questions.json in Resources */,
-				);
+			files = (
+				52647E412D4C4F1E0041D589 /* Assets.xcassets in Resources */,
+				521093172C69349400218BA2 /* Preview Assets.xcassets in Resources */,
+				521267E32F007BCA007C1F02 /* CertificationPrepPro.icon in Resources */,
+				52BD75662D6BEC3D00F24669 /* software-architect-associate-questions.json in Resources */,
+				52BD756A2D6C7CFF00F24669 /* cloud-practitioner-questions.json in Resources */,
+				52E7260B2D8F123400F24669 /* developer-associate-questions.json in Resources */,
+				52E7260D2D8F1C2F00F24669 /* sysops-associate-questions.json in Resources */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5210931A2C69349400218BA2 /* Resources */ = {
@@ -507,8 +511,9 @@
 		521093312C69349400218BA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = CertificationPrepPro;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 5;
@@ -548,8 +553,9 @@
 		521093322C69349400218BA2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = CertificationPrepPro;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 5;
