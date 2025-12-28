@@ -125,6 +125,9 @@ struct HistoricalResultsView: View {
         }
         .onAppear {
             results = QuizResultsManager.shared.fetchResults().sorted { $0.date > $1.date }
+
+            // Track historical results view
+            // AnalyticsManager.shared.trackHistoricalResultsViewed()
         }
     }
     

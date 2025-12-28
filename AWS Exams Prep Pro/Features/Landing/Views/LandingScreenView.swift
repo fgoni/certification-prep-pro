@@ -176,6 +176,23 @@ struct LandingScreenView: View {
                     }
                     .buttonStyle(PlainButtonStyle())
                     Spacer()
+
+                    // Build version and attribution
+                    VStack(spacing: 6) {
+                        Text("v\(Bundle.main.appVersion) (\(Bundle.main.appBuild))")
+                            .font(.caption2)
+                            .foregroundColor(AppTheme.Colors.textSecondary)
+                            .opacity(0.5)
+
+                        Link(destination: URL(string: "https://coffeedevs.com")!) {
+                            Text("Built with ❤️ by coffeedevs.com")
+                                .font(.caption2)
+                                .foregroundColor(AppTheme.Colors.textSecondary)
+                                .opacity(0.5)
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.bottom, 8)
                 }
                 .padding()
                 .background(AppTheme.Colors.backgroundPrimary.ignoresSafeArea())

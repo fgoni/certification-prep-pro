@@ -1,6 +1,8 @@
 import Foundation
 import Combine
 
+// Analytics
+
 /// ViewModel for Landing screen
 /// Handles business logic and dependency injection
 class LandingViewModel: ObservableObject {
@@ -36,6 +38,7 @@ class LandingViewModel: ObservableObject {
         } else {
             adRewardType = .full
             showAdAlert = true
+            // AnalyticsManager.shared.trackAdLimitReached()
         }
     }
 
@@ -46,6 +49,7 @@ class LandingViewModel: ObservableObject {
         } else {
             adRewardType = .quick
             showAdAlert = true
+            // AnalyticsManager.shared.trackAdLimitReached()
         }
     }
 
@@ -54,6 +58,9 @@ class LandingViewModel: ObservableObject {
             guard let self = self else { return }
 
             if success {
+                // Track rewarded ad watched
+                // AnalyticsManager.shared.trackRewardedAdWatched(outcome: "completed")
+
                 self.quizLimitProvider.addAttempt()
                 self.quizLimitProvider.useAttempt()
                 self.showAdAlert = false
@@ -67,6 +74,9 @@ class LandingViewModel: ObservableObject {
                         self.isFullQuizActive = true
                     }
                 }
+            } else {
+                // Track rewarded ad skipped
+                // AnalyticsManager.shared.trackRewardedAdWatched(outcome: "skipped")
             }
         }
     }
@@ -74,6 +84,9 @@ class LandingViewModel: ObservableObject {
     func changeQuestionSet(to set: QuestionSet) {
         selectedQuestionSet = set
         loadQuestionSet(for: set)
+
+        // Track exam selected
+        // AnalyticsManager.shared.trackExamSelected(examSet: set.rawValue)
     }
 
     // MARK: - Private Methods

@@ -8,6 +8,9 @@
 import SwiftUI
 import SwiftData
 import GoogleMobileAds
+#if canImport(FirebaseCore)
+import FirebaseCore
+#endif
 
 @main
 struct AWS_Exams_Prep_ProApp: App {
@@ -16,6 +19,10 @@ struct AWS_Exams_Prep_ProApp: App {
     init() {
         // Initialize Google Mobile Ads SDK
         MobileAds.shared.start(completionHandler: nil)
+
+        // Initialize Firebase
+        // FirebaseManager.shared.initialize()
+        // Note: Firebase packages will be added via Swift Package Manager
     }
 
     var sharedModelContainer: ModelContainer = {

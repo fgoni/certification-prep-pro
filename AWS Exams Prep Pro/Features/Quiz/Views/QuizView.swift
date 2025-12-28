@@ -1,6 +1,10 @@
 import SwiftUI
 import StoreKit
 
+// Analytics
+import os.log
+private let logger = Logger(subsystem: "com.coffeedevs.capuccino", category: "QuizView")
+
 // QuizQuestion model is now in Core/Models/QuizQuestion.swift
 // MARK: - QuizView
 struct QuizView: View {
@@ -289,7 +293,7 @@ struct QuizView: View {
             // Mark the quiz as completed and display the score
             quizCompleted = true
             stopTimer()
-            
+
             // Show review prompt after a short delay only if user passed
             let percentage = Double(correctAnswersCount) / Double(questions.count) * 100
             if percentage >= 70 {
@@ -297,10 +301,21 @@ struct QuizView: View {
                     showReviewPrompt = true
                 }
             }
-            
+
             // Calculate the time spent
             let timeSpent = timeLimit - timeRemaining
-            
+
+            // Track quiz completed
+            /*
+            AnalyticsManager.shared.trackQuizCompleted(
+                examSet: "unknown_exam",
+                score: correctAnswersCount,
+                totalQuestions: questions.count,
+                timeSpent: timeSpent,
+                passed: percentage >= 70
+            )
+            */
+
             // Save the result when the quiz is completed
             let result = QuizResult(
                 score: correctAnswersCount,
@@ -309,7 +324,7 @@ struct QuizView: View {
                 timeLimit: timeLimit
             )
             QuizResultsManager.shared.saveResult(result)
-            
+
             // Trigger confetti if the user passed
             showConfetti = percentage >= 70
         }
@@ -348,12 +363,28 @@ struct QuizView: View {
     
     // MARK: - Timer Methods
     private func startTimer() {
+        // Track quiz started
+        let quizType = questions.count > 20 ? "full_quiz" : "quick_quiz"
+        // AnalyticsManager.shared.trackQuizStarted(examSet: "unknown_exam", quizType: quizType)
+
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             if self.timeRemaining > 0 {
                 self.timeRemaining -= 1
             } else {
                 self.quizCompleted = true
                 stopTimer()
+
+                // Track quiz completed by timeout
+                let percentage = Double(self.correctAnswersCount) / Double(self.questions.count) * 100
+                /*
+                AnalyticsManager.shared.trackQuizCompleted(
+                    examSet: "unknown_exam",
+                    score: self.correctAnswersCount,
+                    totalQuestions: self.questions.count,
+                    timeSpent: self.timeLimit,
+                    passed: percentage >= 70
+                )
+                */
             }
         }
     }
@@ -380,7 +411,9 @@ struct QuizView: View {
     }
 
     private func submitFeedback() {
-        // TODO: Implement feedback submission to Firebase or other service
+        // Track feedback submitted
+        // AnalyticsManager.shared.trackFeedbackSubmitted(category: "quiz_feedback")
+
         print("Feedback submitted: \(feedbackText)")
         showFeedbackConfirmation = true
     }
