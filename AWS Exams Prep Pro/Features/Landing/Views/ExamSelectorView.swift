@@ -36,8 +36,8 @@ struct ExamSelectorView: View {
 }
 
 #Preview {
-    @State var selectedExam = QuestionSet.cloudPractitioner
-    @State var isPresented = true
+    @Previewable @State var selectedExam = QuestionSet.cloudPractitioner
+    @Previewable @State var isPresented = true
 
     return ExamSelectorView(selectedExam: $selectedExam, isPresented: $isPresented)
 }

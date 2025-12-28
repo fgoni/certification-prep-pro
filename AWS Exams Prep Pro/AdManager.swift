@@ -45,9 +45,12 @@ class AdManager: NSObject, ObservableObject {
     
     func showRewardedInterstitialAd(completion: @escaping (Bool) -> Void) {
         completionHandler = completion
-        
+
         if let ad = rewardedInterstitialAd {
-            if let rootViewController = UIApplication.shared.windows.first?.rootViewController {
+            if let rootViewController = UIApplication.shared.connectedScenes
+                .compactMap({ $0 as? UIWindowScene })
+                .flatMap({ $0.windows })
+                .first?.rootViewController {
                 ad.present(from: rootViewController) {
                     // Reward the user here
                     self.completionHandler?(true)

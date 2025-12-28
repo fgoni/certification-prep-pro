@@ -12,9 +12,9 @@ struct ThemeToggleButton: View {
     private var iconName: String {
         switch themeManager.selectedTheme {
         case .light:
-            return "moon.fill"
-        case .dark:
             return "sun.max.fill"
+        case .dark:
+            return "moon.fill"
         case .system:
             return "circle.lefthalf.filled"
         }
@@ -50,8 +50,8 @@ struct LandingScreenView: View {
     @EnvironmentObject var themeManager: ThemeManager
 
     init(
-        quizLimitProvider: QuizLimitProviderProtocol = QuizLimitManager.shared,
-        adProvider: AdProviderProtocol = AdManager.shared
+        quizLimitProvider: any QuizLimitProviderProtocol = QuizLimitManager.shared,
+        adProvider: any AdProviderProtocol = AdManager.shared
     ) {
         _viewModel = StateObject(wrappedValue: LandingViewModel(
             quizLimitProvider: quizLimitProvider,
@@ -192,7 +192,7 @@ struct LandingScreenView: View {
                 .sheet(isPresented: $viewModel.showExamSelector) {
                     ExamSelectorView(selectedExam: $viewModel.selectedQuestionSet, isPresented: $viewModel.showExamSelector)
                 }
-                .onChange(of: viewModel.selectedQuestionSet) { newValue in
+                .onChange(of: viewModel.selectedQuestionSet) { _, newValue in
                     viewModel.changeQuestionSet(to: newValue)
                 }
                 .onAppear {

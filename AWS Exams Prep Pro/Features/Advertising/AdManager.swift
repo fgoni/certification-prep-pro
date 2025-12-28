@@ -59,7 +59,10 @@ final class AdManager: NSObject, AdProviderProtocol {
             return
         }
 
-        guard let rootViewController = UIApplication.shared.windows.first?.rootViewController else {
+        guard let rootViewController = UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .flatMap({ $0.windows })
+            .first?.rootViewController else {
             completion(false)
             return
         }

@@ -15,13 +15,13 @@ class LandingViewModel: ObservableObject {
     @Published var quizData = QuizQuestions()
 
     // MARK: - Dependencies (injected)
-    private let quizLimitProvider: QuizLimitProviderProtocol
-    private let adProvider: AdProviderProtocol
+    private let quizLimitProvider: any QuizLimitProviderProtocol
+    private let adProvider: any AdProviderProtocol
 
     // MARK: - Initialization
     init(
-        quizLimitProvider: QuizLimitProviderProtocol = QuizLimitManager.shared,
-        adProvider: AdProviderProtocol = AdManager.shared
+        quizLimitProvider: any QuizLimitProviderProtocol = QuizLimitManager.shared,
+        adProvider: any AdProviderProtocol = AdManager.shared
     ) {
         self.quizLimitProvider = quizLimitProvider
         self.adProvider = adProvider
