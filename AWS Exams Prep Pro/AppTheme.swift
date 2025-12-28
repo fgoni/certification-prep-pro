@@ -122,7 +122,7 @@ enum AppTheme {
 
     // MARK: - Typography
     enum Typography {
-        // Font sizes
+        // System Font Presets
         static let largeTitle = Font.largeTitle
         static let title1 = Font.title
         static let title2 = Font.title2
@@ -133,6 +133,22 @@ enum AppTheme {
         static let subheadline = Font.subheadline
         static let caption = Font.caption
         static let caption2 = Font.caption2
+
+        // Landing Screen Typography
+        static let landingMainTitle = Font.system(size: 22, weight: .bold)
+        static let landingSubtitle = Font.system(size: 14, weight: .regular)
+
+        // Status Card Typography
+        static let statusCardLabel = Font.system(size: 10, weight: .semibold)
+        static let statusCardValue = Font.system(size: 16, weight: .bold)
+
+        // Action Card Typography
+        static let actionCardTitle = Font.system(size: 16, weight: .semibold)
+        static let actionCardSubtitle = Font.system(size: 12, weight: .regular)
+
+        // General Card Typography
+        static let cardTitle = Font.system(size: 16, weight: .semibold)
+        static let cardSubtitle = Font.system(size: 12, weight: .regular)
 
         // Custom font sizes with weights
         static func systemFont(size: CGFloat, weight: Font.Weight = .regular) -> Font {

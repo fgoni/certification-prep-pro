@@ -17,7 +17,7 @@ struct QuizLimitBar: View {
                 icon: "clock.fill",
                 type: .timer,
                 label: "Time until next free quiz",
-                value: quizLimitManager.timeUntilReset()
+                value: quizLimitManager.timeUntilResetDisplay
             )
         }
     }

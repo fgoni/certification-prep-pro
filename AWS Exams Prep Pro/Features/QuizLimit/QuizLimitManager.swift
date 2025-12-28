@@ -10,14 +10,17 @@ final class QuizLimitManager: QuizLimitProviderProtocol {
 
     // MARK: - Published Properties
     @Published private(set) var remainingAttempts: Int = 0
+    @Published private(set) var timeUntilResetDisplay: String = "00:00"
 
     // MARK: - Properties
     private let configuration: QuizLimitConfiguration
+    private var timer: Timer?
 
     // MARK: - Initialization
     private init(configuration: QuizLimitConfiguration = .default) {
         self.configuration = configuration
         setupInitialState()
+        startTimer()
     }
 
     // MARK: - Private Methods
@@ -83,5 +86,15 @@ final class QuizLimitManager: QuizLimitProviderProtocol {
         let components = calendar.dateComponents([.hour, .minute], from: now, to: nextDay)
 
         return String(format: "%02d:%02d", components.hour ?? 0, components.minute ?? 0)
+    }
+
+    private func startTimer() {
+        // Update immediately
+        timeUntilResetDisplay = timeUntilReset()
+
+        // Set up timer to update every second
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            self?.timeUntilResetDisplay = self?.timeUntilReset() ?? "00:00"
+        }
     }
 }

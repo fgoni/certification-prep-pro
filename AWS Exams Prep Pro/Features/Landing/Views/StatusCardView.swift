@@ -65,16 +65,16 @@ struct StatusCardView: View {
                 }
 
                 Text(label.uppercased())
-                    .font(.system(size: 12, weight: .bold))
-                    .tracking(0.5)
+                    .font(AppTheme.Typography.statusCardLabel)
+                    .tracking(0.4)
                     .foregroundColor(type.iconColor)
 
                 Spacer()
             }
 
             Text(value)
-                .font(.system(size: 36, weight: .bold))
-                .tracking(0.3)
+                .font(AppTheme.Typography.statusCardValue)
+                .tracking(0.2)
                 .foregroundColor(type.textColor)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }

@@ -10,12 +10,12 @@ struct ThemeToggleButton: View {
     }
 
     private var iconName: String {
-        switch currentScheme {
+        switch themeManager.selectedTheme {
         case .light:
             return "moon.fill"
         case .dark:
             return "sun.max.fill"
-        @unknown default:
+        case .system:
             return "circle.lefthalf.filled"
         }
     }
@@ -60,146 +60,158 @@ struct LandingScreenView: View {
     }
 
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 20) {
-                QuizLimitBar()
-                    .padding(.top, 10)
-
-                VStack {
-                    Text("Certification Prep Pro")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(AppTheme.Colors.textPrimary)
-                        .multilineTextAlignment(.center)
+        ZStack {
+            NavigationStack {
+                VStack(spacing: 20) {
+                    QuizLimitBar()
                         .padding(.top, 10)
-                        .fixedSize(horizontal: false, vertical: true)
 
-                    Text(" for AWS")
-                        .font(.headline)
-                        .foregroundColor(AppTheme.Colors.textSecondary)
-                        .opacity(0.6)
-                        .multilineTextAlignment(.center)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
+                    VStack {
+                        Text("Certification Prep Pro")
+                            .font(AppTheme.Typography.landingMainTitle)
+                            .foregroundColor(AppTheme.Colors.textPrimary)
+                            .multilineTextAlignment(.center)
+                            .padding(.top, 10)
+                            .fixedSize(horizontal: false, vertical: true)
 
-                // Exam Selection Button
-                Button(action: {
-                    viewModel.showExamSelector = true
-                }) {
-                    HStack {
-                        Text(viewModel.selectedQuestionSet.title)
-                            .font(.headline)
-                            .foregroundColor(.white)
-                        Spacer()
-                        Image(systemName: "chevron.down")
-                            .foregroundColor(.white)
+                        Text("for AWS")
+                            .font(AppTheme.Typography.landingSubtitle)
+                            .foregroundColor(AppTheme.Colors.textSecondary)
+                            .opacity(0.6)
+                            .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
-                    .padding()
-                    .background(AppTheme.Colors.examSelectorBackground)
-                    .cornerRadius(10)
-                }
 
-                // Show the number of questions loaded
-                Text("Loaded \(viewModel.quizData.allQuizQuestions.count) questions")
-                    .font(.caption)
-                    .foregroundColor(AppTheme.Colors.textSecondary)
-
-                // Full Quiz Button
-                ActionCardView(
-                    title: "Full Quiz",
-                    subtitle: "65 Questions • 40 Minutes",
-                    icon: "arrow.right.circle.fill",
-                    iconColor: .blue,
-                    isEnabled: QuizLimitManager.shared.canStartQuiz(),
-                    showLock: !QuizLimitManager.shared.canStartQuiz(),
-                    action: { viewModel.startFullQuiz() }
-                )
-                .navigationDestination(isPresented: $viewModel.isFullQuizActive) {
-                    QuizView(
-                        questions: Array(viewModel.quizData.allQuizQuestions.shuffled().prefix(65)),
-                        timeLimit: 40 * 60,
-                        totalPoolSize: viewModel.quizData.getTotalQuizQuestions()
-                    )
-                }
-
-                // Quick Quiz Button
-                ActionCardView(
-                    title: "Quick Quiz",
-                    subtitle: "20 Questions • 12 Minutes",
-                    icon: "arrow.right.circle.fill",
-                    iconColor: .blue,
-                    isEnabled: QuizLimitManager.shared.canStartQuiz(),
-                    showLock: !QuizLimitManager.shared.canStartQuiz(),
-                    action: { viewModel.startQuickQuiz() }
-                )
-                .navigationDestination(isPresented: $viewModel.isQuickQuizActive) {
-                    QuizView(
-                        questions: Array(viewModel.quizData.allQuizQuestions.shuffled().prefix(20)),
-                        timeLimit: 12 * 60,
-                        totalPoolSize: viewModel.quizData.getTotalQuizQuestions()
-                    )
-                }
-
-                // NavigationLink for Historical Results
-                NavigationLink(destination: HistoricalResultsView()) {
-                    HStack(spacing: 12) {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("Historical Results")
-                                .font(.system(size: 17, weight: .semibold))
-                                .foregroundColor(AppTheme.Colors.textPrimary)
-
-                            Text("View your past quiz performances")
-                                .font(.system(size: 13))
-                                .foregroundColor(AppTheme.Colors.textSecondary)
+                    // Exam Selection Button
+                    Button(action: {
+                        viewModel.showExamSelector = true
+                    }) {
+                        HStack {
+                            Text(viewModel.selectedQuestionSet.title)
+                                .font(.headline)
+                                .foregroundColor(.white)
+                            Spacer()
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(.white)
                         }
-
-                        Spacer()
-
-                        Image(systemName: "chart.bar.fill")
-                            .font(.system(size: 22, weight: .semibold))
-                            .foregroundColor(AppTheme.Colors.accentBlue)
+                        .padding()
+                        .background(AppTheme.Colors.examSelectorBackground)
+                        .cornerRadius(10)
                     }
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 18)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(AppTheme.Colors.actionCardBackground)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(AppTheme.Colors.actionCardBorder, lineWidth: 1)
+
+                    // Show the number of questions loaded
+                    Text("Loaded \(viewModel.quizData.allQuizQuestions.count) questions")
+                        .font(.caption)
+                        .foregroundColor(AppTheme.Colors.textSecondary)
+
+                    // Full Quiz Button
+                    ActionCardView(
+                        title: "Full Quiz",
+                        subtitle: "65 Questions • 40 Minutes",
+                        icon: "arrow.right.circle.fill",
+                        iconColor: .blue,
+                        isEnabled: QuizLimitManager.shared.canStartQuiz(),
+                        showLock: !QuizLimitManager.shared.canStartQuiz(),
+                        action: { viewModel.startFullQuiz() }
                     )
-                    .cornerRadius(12)
+                    .navigationDestination(isPresented: $viewModel.isFullQuizActive) {
+                        QuizView(
+                            questions: Array(viewModel.quizData.allQuizQuestions.shuffled().prefix(65)),
+                            timeLimit: 40 * 60,
+                            totalPoolSize: viewModel.quizData.getTotalQuizQuestions()
+                        )
+                    }
+
+                    // Quick Quiz Button
+                    ActionCardView(
+                        title: "Quick Quiz",
+                        subtitle: "20 Questions • 12 Minutes",
+                        icon: "arrow.right.circle.fill",
+                        iconColor: .blue,
+                        isEnabled: QuizLimitManager.shared.canStartQuiz(),
+                        showLock: !QuizLimitManager.shared.canStartQuiz(),
+                        action: { viewModel.startQuickQuiz() }
+                    )
+                    .navigationDestination(isPresented: $viewModel.isQuickQuizActive) {
+                        QuizView(
+                            questions: Array(viewModel.quizData.allQuizQuestions.shuffled().prefix(20)),
+                            timeLimit: 12 * 60,
+                            totalPoolSize: viewModel.quizData.getTotalQuizQuestions()
+                        )
+                    }
+
+                    // NavigationLink for Historical Results
+                    NavigationLink(destination: HistoricalResultsView()) {
+                        HStack(spacing: 12) {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Historical Results")
+                                    .font(AppTheme.Typography.cardTitle)
+                                    .foregroundColor(AppTheme.Colors.textPrimary)
+
+                                Text("View your past quiz performances")
+                                    .font(AppTheme.Typography.cardSubtitle)
+                                    .foregroundColor(AppTheme.Colors.textSecondary)
+                            }
+
+                            Spacer()
+
+                            Image(systemName: "chart.bar.fill")
+                                .font(.system(size: 18, weight: .semibold))
+                                .foregroundColor(AppTheme.Colors.accentBlue)
+                                .frame(width: 42, height: 42)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .fill(AppTheme.Colors.accentBlue.opacity(0.15))
+                                )
+                        }
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 18)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(AppTheme.Colors.actionCardBackground)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(AppTheme.Colors.actionCardBorder, lineWidth: 1)
+                        )
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    Spacer()
                 }
-                .buttonStyle(PlainButtonStyle())
+                .padding()
+                .background(AppTheme.Colors.backgroundPrimary.ignoresSafeArea())
+                .alert("Watch an Ad to Unlock More Quizzes", isPresented: $viewModel.showAdAlert) {
+                    Button("Watch Ad") {
+                        viewModel.watchAdToUnlock()
+                    }
+                    Button("Cancel", role: .cancel) {
+                        viewModel.showAdAlert = false
+                    }
+                } message: {
+                    Text("Watch a short ad to get an additional quiz attempt.")
+                }
+                .sheet(isPresented: $viewModel.showExamSelector) {
+                    ExamSelectorView(selectedExam: $viewModel.selectedQuestionSet, isPresented: $viewModel.showExamSelector)
+                }
+                .onChange(of: viewModel.selectedQuestionSet) { newValue in
+                    viewModel.changeQuestionSet(to: newValue)
+                }
+                .onAppear {
+                    // Question set is loaded during ViewModel initialization
+                    // No additional loading needed here
+                }
+            }
+
+            // Theme Toggle Button - positioned absolutely in bottom right
+            VStack {
                 Spacer()
-            }
-            .padding()
-            .background(AppTheme.Colors.backgroundPrimary.ignoresSafeArea())
-            .overlay(
-                ThemeToggleButton()
-                    .padding(.trailing, 16)
-                    .padding(.bottom, 16),
-                alignment: .bottomTrailing
-            )
-            .alert("Watch an Ad to Unlock More Quizzes", isPresented: $viewModel.showAdAlert) {
-                Button("Watch Ad") {
-                    viewModel.watchAdToUnlock()
+                HStack {
+                    Spacer()
+                    ThemeToggleButton()
+                        .padding(.trailing, 24)
+                        .padding(.bottom, 24)
                 }
-                Button("Cancel", role: .cancel) {
-                    viewModel.showAdAlert = false
-                }
-            } message: {
-                Text("Watch a short ad to get an additional quiz attempt.")
             }
-            .sheet(isPresented: $viewModel.showExamSelector) {
-                ExamSelectorView(selectedExam: $viewModel.selectedQuestionSet, isPresented: $viewModel.showExamSelector)
-            }
-            .onChange(of: viewModel.selectedQuestionSet) { newValue in
-                viewModel.changeQuestionSet(to: newValue)
-            }
-            .onAppear {
-                // Question set is loaded during ViewModel initialization
-                // No additional loading needed here
-            }
+            .ignoresSafeArea()
         }
     }
 }

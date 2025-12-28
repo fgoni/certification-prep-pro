@@ -17,11 +17,11 @@ struct ActionCardView: View {
                 HStack(spacing: 12) {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(title)
-                            .font(.system(size: 17, weight: .semibold))
+                            .font(AppTheme.Typography.actionCardTitle)
                             .foregroundColor(isEnabled ? AppTheme.Colors.textPrimary : AppTheme.Colors.textSecondary)
 
                         Text(subtitle)
-                            .font(.system(size: 13))
+                            .font(AppTheme.Typography.actionCardSubtitle)
                             .foregroundColor(AppTheme.Colors.textSecondary)
                     }
 

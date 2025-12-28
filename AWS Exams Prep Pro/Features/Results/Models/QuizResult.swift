@@ -1,15 +1,15 @@
 import Foundation
 
-struct QuizResult: Identifiable, Codable {
-    let id: UUID
-    let date: Date
-    let score: Int
-    let totalQuestions: Int
-    let percentage: Double
-    let timeSpent: Int  // Time spent on the quiz in seconds
-    let timeLimit: Int  // Time limit for the quiz in seconds
+public struct QuizResult: Identifiable, Codable {
+    public let id: UUID
+    public let date: Date
+    public let score: Int
+    public let totalQuestions: Int
+    public let percentage: Double
+    public let timeSpent: Int  // Time spent on the quiz in seconds
+    public let timeLimit: Int  // Time limit for the quiz in seconds
 
-    init(score: Int, totalQuestions: Int, timeSpent: Int, timeLimit: Int) {
+    public init(score: Int, totalQuestions: Int, timeSpent: Int, timeLimit: Int) {
         self.id = UUID()
         self.date = Date()
         self.score = score

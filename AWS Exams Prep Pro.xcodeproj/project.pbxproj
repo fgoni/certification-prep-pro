@@ -7,31 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		094FCE727DD99CE41078D4CC /* QuestionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D80F800E72779A80B4248D /* QuestionSet.swift */; };
+		0A6E0AB85E8F118EACC3480A /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4208442A92F83600931FE7 /* AppTheme.swift */; };
+		0F7CDD9F223D7BCF54991F5C /* QuizLimitBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B8A93F58630576DEA4526 /* QuizLimitBar.swift */; };
+		211071057F9F229F8B37B7E7 /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6B5506DE6EA8050302FDA4 /* AdManager.swift */; };
+		2EB180C9C9A5C878C82B5DCF /* ExamSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AAB8D1F05F3D64D5A0CBB1 /* ExamSelectorView.swift */; };
+		35A904751904608D203C3756 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E64D922C6F23DB2CBEA973 /* LandingViewModel.swift */; };
+		3A82BC42B8F360D1D44AD9DC /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C4C32E3450930D5381EBE8 /* ConfettiView.swift */; };
+		3D84A782643BCC9C7EB35AAB /* QuizLimitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B2C6D50E4B9008CCF977D1 /* QuizLimitManager.swift */; };
+		3DF9293F6ACA0C7F137D5870 /* Confetti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBBA46F37AD833E2CB2B1C6 /* Confetti.swift */; };
+		42A98A4F13F560B738559AB8 /* ActionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AE7A1AF96B76193578E3D9 /* ActionCardView.swift */; };
+		4D8F3A4E8777562CEDFE0414 /* QuizLimitConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0F1459B3241351C77A0B5F /* QuizLimitConfiguration.swift */; };
+		4D93F041E192183D6BA245E9 /* StatusCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D197E52BA1FACB6CFB9D690 /* StatusCardView.swift */; };
 		520AEF1D2DB02C1C00D93F0B /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 520AEF1C2DB02C1C00D93F0B /* GoogleMobileAds */; };
-		520AEF202DB02D3800D93F0B /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520AEF1E2DB02D3800D93F0B /* AdManager.swift */; };
-		520AEF212DB02D3800D93F0B /* QuizLimitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520AEF1F2DB02D3800D93F0B /* QuizLimitManager.swift */; };
 		5210930E2C69349300218BA2 /* AWS_Exams_Prep_ProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210930D2C69349300218BA2 /* AWS_Exams_Prep_ProApp.swift */; };
-		521093102C69349300218BA2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210930F2C69349300218BA2 /* ContentView.swift */; };
-		521093122C69349300218BA2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521093112C69349300218BA2 /* Item.swift */; };
 		521093172C69349400218BA2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521093162C69349400218BA2 /* Preview Assets.xcassets */; };
 		521093212C69349400218BA2 /* AWS_Exams_Prep_ProTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521093202C69349400218BA2 /* AWS_Exams_Prep_ProTests.swift */; };
 		5210932B2C69349400218BA2 /* AWS_Exams_Prep_ProUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210932A2C69349400218BA2 /* AWS_Exams_Prep_ProUITests.swift */; };
 		5210932D2C69349400218BA2 /* AWS_Exams_Prep_ProUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210932C2C69349400218BA2 /* AWS_Exams_Prep_ProUITestsLaunchTests.swift */; };
-		5210933D2C6934F600218BA2 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5210933C2C6934F600218BA2 /* QuizView.swift */; };
-		521093412C69462C00218BA2 /* QuizQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521093402C69462C00218BA2 /* QuizQuestions.swift */; };
-		521093442C6A4CA200218BA2 /* Confetti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521093432C6A4CA200218BA2 /* Confetti.swift */; };
-		521093462C6A4CAF00218BA2 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521093452C6A4CAF00218BA2 /* ConfettiView.swift */; };
 		521267E32F007BCA007C1F02 /* CertificationPrepPro.icon in Resources */ = {isa = PBXBuildFile; fileRef = 521267E22F007BCA007C1F02 /* CertificationPrepPro.icon */; };
-		524B999F2C6C2EB400BABD60 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B999E2C6C2EB400BABD60 /* LandingView.swift */; };
-		524B99A12C6D1DF900BABD60 /* QuizResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B99A02C6D1DF900BABD60 /* QuizResult.swift */; };
-		524B99A32C6D1E1400BABD60 /* QuizResultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B99A22C6D1E1400BABD60 /* QuizResultManager.swift */; };
-		524B99A52C6D1E9300BABD60 /* HistoricalResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B99A42C6D1E9300BABD60 /* HistoricalResultsView.swift */; };
 		52647E412D4C4F1E0041D589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52647E402D4C4F1E0041D589 /* Assets.xcassets */; };
 		52BD75662D6BEC3D00F24669 /* software-architect-associate-questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 52BD75652D6BEC3D00F24669 /* software-architect-associate-questions.json */; };
-		52BD75682D6C783600F24669 /* QuestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BD75672D6C783600F24669 /* QuestionLoader.swift */; };
 		52BD756A2D6C7CFF00F24669 /* cloud-practitioner-questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 52BD75692D6C7CFF00F24669 /* cloud-practitioner-questions.json */; };
 		52E7260B2D8F123400F24669 /* developer-associate-questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 52E7260A2D8F123400F24669 /* developer-associate-questions.json */; };
 		52E7260D2D8F1C2F00F24669 /* sysops-associate-questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 52E7260C2D8F1C2F00F24669 /* sysops-associate-questions.json */; };
+		55FF971E755831517E8EA9D8 /* QuizResultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5297F388F000C97529E0F48E /* QuizResultManager.swift */; };
+		5A33BEA518F6F4313B671101 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDDEAFC9CEC849E6FBFBC17 /* QuizView.swift */; };
+		68DD294322C3A8D2251C95A0 /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5DB2F4DB939CD17AF6D0CD /* QuizQuestion.swift */; };
+		6AD30363B3F7D1EB27BC3EF5 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBEE493007AF6E83A20DF37 /* ThemeManager.swift */; };
+		6C443905E6DCCA134D49600F /* AdProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245CB011D2D5B6064F998628 /* AdProviderProtocol.swift */; };
+		6CC0FD3DC5FA690469D218BF /* QuizLimitProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC3EB7660932A4B9558019 /* QuizLimitProviderProtocol.swift */; };
+		8919E015AC9C7D32960AB36B /* QuestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083CF6474CC36CE6A62E4F5A /* QuestionLoader.swift */; };
+		A8B9F434742311DD2EA3D3F1 /* CelebrationTrophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531250F541B741EED68AB390 /* CelebrationTrophy.swift */; };
+		AB9F068368F0EEB75A78F540 /* PersistenceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C93F7806B13D3DCB5DD2D1F /* PersistenceProtocol.swift */; };
+		AF2F7B51D1C2BF501D578892 /* HistoricalResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDA0D75A959AB86A717370B /* HistoricalResultsView.swift */; };
+		C42BC945B1A923E5E0E1AE8C /* QuizQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D46AF3077B134CC84F47961 /* QuizQuestions.swift */; };
+		E90168EF4CE2FDC0DA8087A4 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7BE4E54B570A6FBEA103F /* Color+Hex.swift */; };
+		EA3E90C042A6E78647C6FDEE /* QuizResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0147795A31B0F224298E8A /* QuizResult.swift */; };
+		ED47D86B2CB8622126862DCE /* LandingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BFAEB8C4711C0C65F1396D /* LandingScreenView.swift */; };
+		F2A8C326FB62F55513D564E1 /* AdConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6D247C573B08E861327703 /* AdConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,13 +66,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		520AEF1E2DB02D3800D93F0B /* AdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdManager.swift; sourceTree = "<group>"; };
-		520AEF1F2DB02D3800D93F0B /* QuizLimitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLimitManager.swift; sourceTree = "<group>"; };
+		04BFAEB8C4711C0C65F1396D /* LandingScreenView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LandingScreenView.swift; path = "AWS Exams Prep Pro/Features/Landing/Views/LandingScreenView.swift"; sourceTree = "<group>"; };
+		083CF6474CC36CE6A62E4F5A /* QuestionLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuestionLoader.swift; path = "AWS Exams Prep Pro/Features/Quiz/Services/QuestionLoader.swift"; sourceTree = "<group>"; };
+		0D197E52BA1FACB6CFB9D690 /* StatusCardView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatusCardView.swift; path = "AWS Exams Prep Pro/Features/Landing/Views/StatusCardView.swift"; sourceTree = "<group>"; };
+		1B5DB2F4DB939CD17AF6D0CD /* QuizQuestion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuizQuestion.swift; path = "AWS Exams Prep Pro/Core/Models/QuizQuestion.swift"; sourceTree = "<group>"; };
+		1EDA0D75A959AB86A717370B /* HistoricalResultsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HistoricalResultsView.swift; path = "AWS Exams Prep Pro/Features/Results/Views/HistoricalResultsView.swift"; sourceTree = "<group>"; };
+		245CB011D2D5B6064F998628 /* AdProviderProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AdProviderProtocol.swift; path = "AWS Exams Prep Pro/Core/Protocols/AdProviderProtocol.swift"; sourceTree = "<group>"; };
+		262414211B3D396EC517F009 /* QuestionLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuestionLoader.swift; path = "AWS Exams Prep Pro/Quizzes/QuestionLoader.swift"; sourceTree = "<group>"; };
+		431B8A93F58630576DEA4526 /* QuizLimitBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuizLimitBar.swift; path = "AWS Exams Prep Pro/Features/Landing/Views/QuizLimitBar.swift"; sourceTree = "<group>"; };
+		48C4C32E3450930D5381EBE8 /* ConfettiView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConfettiView.swift; path = "AWS Exams Prep Pro/Features/Celebration/Views/ConfettiView.swift"; sourceTree = "<group>"; };
+		4C93F7806B13D3DCB5DD2D1F /* PersistenceProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PersistenceProtocol.swift; path = "AWS Exams Prep Pro/Core/Protocols/PersistenceProtocol.swift"; sourceTree = "<group>"; };
 		520AEF222DB14C9000D93F0B /* AWS-Exams-Prep-Pro-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AWS-Exams-Prep-Pro-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5210930A2C69349300218BA2 /* AWS Exams Prep Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AWS Exams Prep Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5210930D2C69349300218BA2 /* AWS_Exams_Prep_ProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWS_Exams_Prep_ProApp.swift; sourceTree = "<group>"; };
-		5210930F2C69349300218BA2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		521093112C69349300218BA2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		521093162C69349400218BA2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5210931C2C69349400218BA2 /* AWS Exams Prep ProTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AWS Exams Prep ProTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		521093202C69349400218BA2 /* AWS_Exams_Prep_ProTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWS_Exams_Prep_ProTests.swift; sourceTree = "<group>"; };
@@ -67,19 +87,44 @@
 		5210932C2C69349400218BA2 /* AWS_Exams_Prep_ProUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWS_Exams_Prep_ProUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5210933C2C6934F600218BA2 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		521093402C69462C00218BA2 /* QuizQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestions.swift; sourceTree = "<group>"; };
-		521093432C6A4CA200218BA2 /* Confetti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confetti.swift; sourceTree = "<group>"; };
-		521093452C6A4CAF00218BA2 /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
 		521267E22F007BCA007C1F02 /* CertificationPrepPro.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = CertificationPrepPro.icon; sourceTree = "<group>"; };
 		524B999E2C6C2EB400BABD60 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		524B99A02C6D1DF900BABD60 /* QuizResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResult.swift; sourceTree = "<group>"; };
 		524B99A22C6D1E1400BABD60 /* QuizResultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultManager.swift; sourceTree = "<group>"; };
 		524B99A42C6D1E9300BABD60 /* HistoricalResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalResultsView.swift; sourceTree = "<group>"; };
 		52647E402D4C4F1E0041D589 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5297F388F000C97529E0F48E /* QuizResultManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuizResultManager.swift; path = "AWS Exams Prep Pro/Features/Results/Services/QuizResultManager.swift"; sourceTree = "<group>"; };
 		52BD75652D6BEC3D00F24669 /* software-architect-associate-questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "software-architect-associate-questions.json"; sourceTree = "<group>"; };
 		52BD75672D6C783600F24669 /* QuestionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLoader.swift; sourceTree = "<group>"; };
 		52BD75692D6C7CFF00F24669 /* cloud-practitioner-questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "cloud-practitioner-questions.json"; sourceTree = "<group>"; };
 		52E7260A2D8F123400F24669 /* developer-associate-questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "developer-associate-questions.json"; sourceTree = "<group>"; };
 		52E7260C2D8F1C2F00F24669 /* sysops-associate-questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "sysops-associate-questions.json"; sourceTree = "<group>"; };
+		531250F541B741EED68AB390 /* CelebrationTrophy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CelebrationTrophy.swift; path = "AWS Exams Prep Pro/Features/Quiz/Views/CelebrationTrophy.swift"; sourceTree = "<group>"; };
+		5745567FCAFAE7BC64A26D5C /* QuizResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuizResult.swift; path = "AWS Exams Prep Pro/Quizzes/QuizResult.swift"; sourceTree = "<group>"; };
+		58AC3EB7660932A4B9558019 /* QuizLimitProviderProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuizLimitProviderProtocol.swift; path = "AWS Exams Prep Pro/Core/Protocols/QuizLimitProviderProtocol.swift"; sourceTree = "<group>"; };
+		5CBBA46F37AD833E2CB2B1C6 /* Confetti.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Confetti.swift; path = "AWS Exams Prep Pro/Features/Celebration/Models/Confetti.swift"; sourceTree = "<group>"; };
+		6360D17234F37F84D5D9E9CE /* QuizQuestions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuizQuestions.swift; path = "AWS Exams Prep Pro/Quizzes/QuizQuestions.swift"; sourceTree = "<group>"; };
+		69E64D922C6F23DB2CBEA973 /* LandingViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LandingViewModel.swift; path = "AWS Exams Prep Pro/Features/Landing/ViewModels/LandingViewModel.swift"; sourceTree = "<group>"; };
+		6D46AF3077B134CC84F47961 /* QuizQuestions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuizQuestions.swift; path = "AWS Exams Prep Pro/Features/Quiz/Services/QuizQuestions.swift"; sourceTree = "<group>"; };
+		720C4A348E998AB2CA7AF344 /* QuizResultManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuizResultManager.swift; path = "AWS Exams Prep Pro/Quizzes/QuizResultManager.swift"; sourceTree = "<group>"; };
+		7D6671FC4C38580279272615 /* ThemeToggleButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThemeToggleButton.swift; path = "AWS Exams Prep Pro/ThemeToggleButton.swift"; sourceTree = "<group>"; };
+		8DDDEAFC9CEC849E6FBFBC17 /* QuizView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuizView.swift; path = "AWS Exams Prep Pro/Features/Quiz/Views/QuizView.swift"; sourceTree = "<group>"; };
+		8E4208442A92F83600931FE7 /* AppTheme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppTheme.swift; path = "AWS Exams Prep Pro/AppTheme.swift"; sourceTree = "<group>"; };
+		9BBA1CFDA836800082BF8A6D /* ThemeModifiers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThemeModifiers.swift; path = "AWS Exams Prep Pro/ThemeModifiers.swift"; sourceTree = "<group>"; };
+		9E0F1459B3241351C77A0B5F /* QuizLimitConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuizLimitConfiguration.swift; path = "AWS Exams Prep Pro/Features/QuizLimit/QuizLimitConfiguration.swift"; sourceTree = "<group>"; };
+		A931C42EBC29D12E15781F3B /* AWS_Exams_Prep_ProApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AWS_Exams_Prep_ProApp.swift; path = "AWS Exams Prep Pro/AWS_Exams_Prep_ProApp.swift"; sourceTree = "<group>"; };
+		ADBEE493007AF6E83A20DF37 /* ThemeManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThemeManager.swift; path = "AWS Exams Prep Pro/ThemeManager.swift"; sourceTree = "<group>"; };
+		AE6D247C573B08E861327703 /* AdConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AdConfiguration.swift; path = "AWS Exams Prep Pro/Features/Advertising/AdConfiguration.swift"; sourceTree = "<group>"; };
+		B3AAB8D1F05F3D64D5A0CBB1 /* ExamSelectorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExamSelectorView.swift; path = "AWS Exams Prep Pro/Features/Landing/Views/ExamSelectorView.swift"; sourceTree = "<group>"; };
+		B6AFEFEF73CC3D64DC44B8A6 /* ButtonStyles.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonStyles.swift; path = "AWS Exams Prep Pro/ButtonStyles.swift"; sourceTree = "<group>"; };
+		C333FDEA7B5F1DB6F8D14052 /* Confetti.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Confetti.swift; path = "AWS Exams Prep Pro/Features/Celebration/Models/Confetti.swift"; sourceTree = "<group>"; };
+		D1A5AF2FA901380F5E836D66 /* ConfettiView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConfettiView.swift; path = "AWS Exams Prep Pro/Features/Celebration/Views/ConfettiView.swift"; sourceTree = "<group>"; };
+		D2A7BE4E54B570A6FBEA103F /* Color+Hex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Color+Hex.swift"; path = "AWS Exams Prep Pro/Core/Extensions/Color+Hex.swift"; sourceTree = "<group>"; };
+		D3B2C6D50E4B9008CCF977D1 /* QuizLimitManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuizLimitManager.swift; path = "AWS Exams Prep Pro/Features/QuizLimit/QuizLimitManager.swift"; sourceTree = "<group>"; };
+		D7D80F800E72779A80B4248D /* QuestionSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuestionSet.swift; path = "AWS Exams Prep Pro/Features/Landing/Models/QuestionSet.swift"; sourceTree = "<group>"; };
+		DB0147795A31B0F224298E8A /* QuizResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuizResult.swift; path = "AWS Exams Prep Pro/Features/Results/Models/QuizResult.swift"; sourceTree = "<group>"; };
+		F8AE7A1AF96B76193578E3D9 /* ActionCardView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionCardView.swift; path = "AWS Exams Prep Pro/Features/Landing/Views/ActionCardView.swift"; sourceTree = "<group>"; };
+		FE6B5506DE6EA8050302FDA4 /* AdManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AdManager.swift; path = "AWS Exams Prep Pro/Features/Advertising/AdManager.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +153,108 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		062A0FE753C9692805E7B1B5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6D46AF3077B134CC84F47961 /* QuizQuestions.swift */,
+				083CF6474CC36CE6A62E4F5A /* QuestionLoader.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		1A5548D8E7F9DF9B94F0D650 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D7D80F800E72779A80B4248D /* QuestionSet.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		261086B17C0D03E19DB0090D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D1A5AF2FA901380F5E836D66 /* ConfettiView.swift */,
+				48C4C32E3450930D5381EBE8 /* ConfettiView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		28316EECD3DB3FDBF9EBB4DA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				245CB011D2D5B6064F998628 /* AdProviderProtocol.swift */,
+				4C93F7806B13D3DCB5DD2D1F /* PersistenceProtocol.swift */,
+				58AC3EB7660932A4B9558019 /* QuizLimitProviderProtocol.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		29EA40853B8F2B82D845C926 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				D7BCD4BC313F46E4674F7330 /* Advertising */,
+				DD3DA001F42CEEBEDE6ED1E1 /* Celebration */,
+				CECA97843ACFDA81062DA0E8 /* Landing */,
+				759BA027DA89985DDFD23BE3 /* Quiz */,
+				36C590AC56323371576A0FD1 /* QuizLimit */,
+				454E408558F49AD833E16A38 /* Results */,
+			);
+			name = Features;
+			sourceTree = "<group>";
+		};
+		29EF13A164438F44BBED60A5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1EDA0D75A959AB86A717370B /* HistoricalResultsView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		36C590AC56323371576A0FD1 /* QuizLimit */ = {
+			isa = PBXGroup;
+			children = (
+				9E0F1459B3241351C77A0B5F /* QuizLimitConfiguration.swift */,
+				D3B2C6D50E4B9008CCF977D1 /* QuizLimitManager.swift */,
+			);
+			name = QuizLimit;
+			sourceTree = "<group>";
+		};
+		39E0715118A44695AB1849A6 /* Confetti */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Confetti;
+			sourceTree = "<group>";
+		};
+		3CDE538F0536C6F2DC659710 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				531250F541B741EED68AB390 /* CelebrationTrophy.swift */,
+				8DDDEAFC9CEC849E6FBFBC17 /* QuizView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		454E408558F49AD833E16A38 /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				ABA398963C76E1A5164FA19D /* Models */,
+				B819EFC934776B6F5BA07E2A /* Services */,
+				29EF13A164438F44BBED60A5 /* Views */,
+			);
+			name = Results;
+			sourceTree = "<group>";
+		};
+		49BAA26B06F320D0E9E9E680 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E2627CD971A73701B44BD919 /* Extensions */,
+				6DC1D3D640CB169A86C0CCFE /* Models */,
+				28316EECD3DB3FDBF9EBB4DA /* Protocols */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 		521093012C69349200218BA2 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +262,16 @@
 				5210931F2C69349400218BA2 /* AWS Exams Prep ProTests */,
 				521093292C69349400218BA2 /* AWS Exams Prep ProUITests */,
 				5210930B2C69349300218BA2 /* Products */,
+				39E0715118A44695AB1849A6 /* Confetti */,
+				49BAA26B06F320D0E9E9E680 /* Core */,
+				29EA40853B8F2B82D845C926 /* Features */,
+				708C9E49D9DF2B57E7598565 /* Quizzes */,
+				A931C42EBC29D12E15781F3B /* AWS_Exams_Prep_ProApp.swift */,
+				8E4208442A92F83600931FE7 /* AppTheme.swift */,
+				B6AFEFEF73CC3D64DC44B8A6 /* ButtonStyles.swift */,
+				ADBEE493007AF6E83A20DF37 /* ThemeManager.swift */,
+				9BBA1CFDA836800082BF8A6D /* ThemeModifiers.swift */,
+				7D6671FC4C38580279272615 /* ThemeToggleButton.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,13 +293,9 @@
 				521093422C6A4C8D00218BA2 /* Confetti */,
 				521093392C6934D200218BA2 /* Quizzes */,
 				5210930D2C69349300218BA2 /* AWS_Exams_Prep_ProApp.swift */,
-				5210930F2C69349300218BA2 /* ContentView.swift */,
-				521093112C69349300218BA2 /* Item.swift */,
 				524B999E2C6C2EB400BABD60 /* LandingView.swift */,
 				524B99A42C6D1E9300BABD60 /* HistoricalResultsView.swift */,
 				521093152C69349400218BA2 /* Preview Content */,
-				520AEF1E2DB02D3800D93F0B /* AdManager.swift */,
-				520AEF1F2DB02D3800D93F0B /* QuizLimitManager.swift */,
 				521267E22F007BCA007C1F02 /* CertificationPrepPro.icon */,
 			);
 			path = "AWS Exams Prep Pro";
@@ -192,10 +345,117 @@
 		521093422C6A4C8D00218BA2 /* Confetti */ = {
 			isa = PBXGroup;
 			children = (
-				521093432C6A4CA200218BA2 /* Confetti.swift */,
-				521093452C6A4CAF00218BA2 /* ConfettiView.swift */,
 			);
 			path = Confetti;
+			sourceTree = "<group>";
+		};
+		61B5E825B609722763493554 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F8AE7A1AF96B76193578E3D9 /* ActionCardView.swift */,
+				B3AAB8D1F05F3D64D5A0CBB1 /* ExamSelectorView.swift */,
+				04BFAEB8C4711C0C65F1396D /* LandingScreenView.swift */,
+				431B8A93F58630576DEA4526 /* QuizLimitBar.swift */,
+				0D197E52BA1FACB6CFB9D690 /* StatusCardView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		6DC1D3D640CB169A86C0CCFE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1B5DB2F4DB939CD17AF6D0CD /* QuizQuestion.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		708C9E49D9DF2B57E7598565 /* Quizzes */ = {
+			isa = PBXGroup;
+			children = (
+				262414211B3D396EC517F009 /* QuestionLoader.swift */,
+				6360D17234F37F84D5D9E9CE /* QuizQuestions.swift */,
+				5745567FCAFAE7BC64A26D5C /* QuizResult.swift */,
+				720C4A348E998AB2CA7AF344 /* QuizResultManager.swift */,
+			);
+			name = Quizzes;
+			sourceTree = "<group>";
+		};
+		759BA027DA89985DDFD23BE3 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				062A0FE753C9692805E7B1B5 /* Services */,
+				3CDE538F0536C6F2DC659710 /* Views */,
+			);
+			name = Quiz;
+			sourceTree = "<group>";
+		};
+		8EAAAB12F32353C2BF293F7B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C333FDEA7B5F1DB6F8D14052 /* Confetti.swift */,
+				5CBBA46F37AD833E2CB2B1C6 /* Confetti.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		98621AF292F56CE1628C5A42 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				69E64D922C6F23DB2CBEA973 /* LandingViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		ABA398963C76E1A5164FA19D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DB0147795A31B0F224298E8A /* QuizResult.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		B819EFC934776B6F5BA07E2A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5297F388F000C97529E0F48E /* QuizResultManager.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		CECA97843ACFDA81062DA0E8 /* Landing */ = {
+			isa = PBXGroup;
+			children = (
+				1A5548D8E7F9DF9B94F0D650 /* Models */,
+				98621AF292F56CE1628C5A42 /* ViewModels */,
+				61B5E825B609722763493554 /* Views */,
+			);
+			name = Landing;
+			sourceTree = "<group>";
+		};
+		D7BCD4BC313F46E4674F7330 /* Advertising */ = {
+			isa = PBXGroup;
+			children = (
+				AE6D247C573B08E861327703 /* AdConfiguration.swift */,
+				FE6B5506DE6EA8050302FDA4 /* AdManager.swift */,
+			);
+			name = Advertising;
+			sourceTree = "<group>";
+		};
+		DD3DA001F42CEEBEDE6ED1E1 /* Celebration */ = {
+			isa = PBXGroup;
+			children = (
+				8EAAAB12F32353C2BF293F7B /* Models */,
+				261086B17C0D03E19DB0090D /* Views */,
+			);
+			name = Celebration;
+			sourceTree = "<group>";
+		};
+		E2627CD971A73701B44BD919 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D2A7BE4E54B570A6FBEA103F /* Color+Hex.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,20 +596,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				520AEF202DB02D3800D93F0B /* AdManager.swift in Sources */,
-				520AEF212DB02D3800D93F0B /* QuizLimitManager.swift in Sources */,
-				521093462C6A4CAF00218BA2 /* ConfettiView.swift in Sources */,
-				521093102C69349300218BA2 /* ContentView.swift in Sources */,
-				524B99A32C6D1E1400BABD60 /* QuizResultManager.swift in Sources */,
-				524B99A12C6D1DF900BABD60 /* QuizResult.swift in Sources */,
-				521093442C6A4CA200218BA2 /* Confetti.swift in Sources */,
-				524B99A52C6D1E9300BABD60 /* HistoricalResultsView.swift in Sources */,
-				5210933D2C6934F600218BA2 /* QuizView.swift in Sources */,
-				524B999F2C6C2EB400BABD60 /* LandingView.swift in Sources */,
-				52BD75682D6C783600F24669 /* QuestionLoader.swift in Sources */,
-				521093412C69462C00218BA2 /* QuizQuestions.swift in Sources */,
-				521093122C69349300218BA2 /* Item.swift in Sources */,
 				5210930E2C69349300218BA2 /* AWS_Exams_Prep_ProApp.swift in Sources */,
+				E90168EF4CE2FDC0DA8087A4 /* Color+Hex.swift in Sources */,
+				68DD294322C3A8D2251C95A0 /* QuizQuestion.swift in Sources */,
+				6C443905E6DCCA134D49600F /* AdProviderProtocol.swift in Sources */,
+				AB9F068368F0EEB75A78F540 /* PersistenceProtocol.swift in Sources */,
+				6CC0FD3DC5FA690469D218BF /* QuizLimitProviderProtocol.swift in Sources */,
+				F2A8C326FB62F55513D564E1 /* AdConfiguration.swift in Sources */,
+				211071057F9F229F8B37B7E7 /* AdManager.swift in Sources */,
+				094FCE727DD99CE41078D4CC /* QuestionSet.swift in Sources */,
+				35A904751904608D203C3756 /* LandingViewModel.swift in Sources */,
+				42A98A4F13F560B738559AB8 /* ActionCardView.swift in Sources */,
+				2EB180C9C9A5C878C82B5DCF /* ExamSelectorView.swift in Sources */,
+				ED47D86B2CB8622126862DCE /* LandingScreenView.swift in Sources */,
+				0F7CDD9F223D7BCF54991F5C /* QuizLimitBar.swift in Sources */,
+				4D93F041E192183D6BA245E9 /* StatusCardView.swift in Sources */,
+				A8B9F434742311DD2EA3D3F1 /* CelebrationTrophy.swift in Sources */,
+				4D8F3A4E8777562CEDFE0414 /* QuizLimitConfiguration.swift in Sources */,
+				0A6E0AB85E8F118EACC3480A /* AppTheme.swift in Sources */,
+				6AD30363B3F7D1EB27BC3EF5 /* ThemeManager.swift in Sources */,
+				3D84A782643BCC9C7EB35AAB /* QuizLimitManager.swift in Sources */,
+				EA3E90C042A6E78647C6FDEE /* QuizResult.swift in Sources */,
+				C42BC945B1A923E5E0E1AE8C /* QuizQuestions.swift in Sources */,
+				55FF971E755831517E8EA9D8 /* QuizResultManager.swift in Sources */,
+				8919E015AC9C7D32960AB36B /* QuestionLoader.swift in Sources */,
+				5A33BEA518F6F4313B671101 /* QuizView.swift in Sources */,
+				AF2F7B51D1C2BF501D578892 /* HistoricalResultsView.swift in Sources */,
+				3DF9293F6ACA0C7F137D5870 /* Confetti.swift in Sources */,
+				3A82BC42B8F360D1D44AD9DC /* ConfettiView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
