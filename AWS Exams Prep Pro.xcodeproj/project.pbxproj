@@ -10,6 +10,7 @@
 		094FCE727DD99CE41078D4CC /* QuestionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D80F800E72779A80B4248D /* QuestionSet.swift */; };
 		0A6E0AB85E8F118EACC3480A /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4208442A92F83600931FE7 /* AppTheme.swift */; };
 		0F7CDD9F223D7BCF54991F5C /* QuizLimitBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B8A93F58630576DEA4526 /* QuizLimitBar.swift */; };
+		52CA000000000000000A0001 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CA000000000000000A0002 /* NotificationManager.swift */; };
 		211071057F9F229F8B37B7E7 /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6B5506DE6EA8050302FDA4 /* AdManager.swift */; };
 		2EB180C9C9A5C878C82B5DCF /* ExamSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AAB8D1F05F3D64D5A0CBB1 /* ExamSelectorView.swift */; };
 		35A904751904608D203C3756 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E64D922C6F23DB2CBEA973 /* LandingViewModel.swift */; };
@@ -135,6 +136,7 @@
 		DB0147795A31B0F224298E8A /* QuizResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuizResult.swift; path = "AWS Exams Prep Pro/Features/Results/Models/QuizResult.swift"; sourceTree = "<group>"; };
 		F8AE7A1AF96B76193578E3D9 /* ActionCardView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionCardView.swift; path = "AWS Exams Prep Pro/Features/Landing/Views/ActionCardView.swift"; sourceTree = "<group>"; };
 		FE6B5506DE6EA8050302FDA4 /* AdManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AdManager.swift; path = "AWS Exams Prep Pro/Features/Advertising/AdManager.swift"; sourceTree = "<group>"; };
+		52CA000000000000000A0002 /* NotificationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = "AWS Exams Prep Pro/Features/Notifications/Services/NotificationManager.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,8 +229,25 @@
 				EA884A1CCDC246FD5AC0C095 /* Shared */,
 				CAA8BFB5A972E985EEB81DFF /* Onboarding */,
 				4DE3E073327BB55257DC0E14 /* Profile */,
+				52CA000000000000000A0003 /* Notifications */,
 			);
 			name = Features;
+			sourceTree = "<group>";
+		};
+		52CA000000000000000A0003 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				52CA000000000000000A0004 /* Services */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
+		52CA000000000000000A0004 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				52CA000000000000000A0002 /* NotificationManager.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		29EF13A164438F44BBED60A5 /* Views */ = {
@@ -692,6 +711,7 @@
 				A398054A6606E4B3C1450C25 /* ResultView.swift in Sources */,
 				971C73881EF513C9AA18AB8B /* OnboardingView.swift in Sources */,
 				D50EA83E6CDE937F18E01BD3 /* ProfileView.swift in Sources */,
+				52CA000000000000000A0001 /* NotificationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -856,13 +876,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = CertificationPrepPro;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 22;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"AWS Exams Prep Pro/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZKYJ6G9GJP;
+				DEVELOPMENT_TEAM = ZKYJ6G9GJP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AWS-Exams-Prep-Pro-Info.plist";
@@ -877,11 +896,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7.0;
+				MARKETING_VERSION = 1.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.coffeedevs.capuccino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "AWS Cloud Practitioner Exam Prep";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -898,12 +916,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = CertificationPrepPro;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_ASSET_PATHS = "\"AWS Exams Prep Pro/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZKYJ6G9GJP;
+				DEVELOPMENT_TEAM = ZKYJ6G9GJP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AWS-Exams-Prep-Pro-Info.plist";
@@ -918,11 +935,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7.0;
+				MARKETING_VERSION = 1.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.coffeedevs.capuccino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "AWS Cloud Practitioner Exam Prep";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -938,10 +954,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 22;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.coffeedevs.capuccino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -956,10 +972,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 22;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.coffeedevs.capuccino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -973,10 +989,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = ZKYJ6G9GJP;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.coffeedevs.capuccino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -990,10 +1006,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = ZKYJ6G9GJP;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.coffeedevs.capuccino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;

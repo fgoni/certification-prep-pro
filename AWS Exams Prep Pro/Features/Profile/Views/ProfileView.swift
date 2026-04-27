@@ -126,7 +126,7 @@ struct ProfileView: View {
                     subtitle: notificationsEnabled ? "On — keeps your streak alive" : "Off",
                     showDivider: true
                 ) {
-                    Toggle("", isOn: $notificationsEnabled)
+                    Toggle("", isOn: notificationsBinding)
                         .labelsHidden()
                         .tint(AppTheme.V1.Colors.accent)
                 }
@@ -234,6 +234,33 @@ struct ProfileView: View {
     // MARK: - Actions
     private func commit() {
         userName = draftName.trimmingCharacters(in: .whitespaces)
+    }
+
+    /// Wraps the @AppStorage binding so we can request system authorization
+    /// when the user flips the toggle on, and clear pending reminders when
+    /// they flip it off.
+    private var notificationsBinding: Binding<Bool> {
+        Binding(
+            get: { notificationsEnabled },
+            set: { newValue in
+                notificationsEnabled = newValue
+                Task {
+                    if newValue {
+                        let granted = await NotificationManager.shared.requestAuthorization()
+                        if granted {
+                            await NotificationManager.shared.refreshSchedule()
+                        } else {
+                            // System prompt was denied (or previously denied) —
+                            // bounce the toggle back so we don't lie about state.
+                            await MainActor.run { notificationsEnabled = false }
+                            await NotificationManager.shared.cancelAll()
+                        }
+                    } else {
+                        await NotificationManager.shared.cancelAll()
+                    }
+                }
+            }
+        )
     }
 }
 

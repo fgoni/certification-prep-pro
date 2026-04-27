@@ -18,6 +18,7 @@ class QuizResultsManager {
         if let encoded = try? JSONEncoder().encode(results) {
             UserDefaults.standard.set(encoded, forKey: resultsKey)
         }
+        NotificationManager.shared.quizCompleted()
     }
 
     func fetchResults() -> [QuizResult] {

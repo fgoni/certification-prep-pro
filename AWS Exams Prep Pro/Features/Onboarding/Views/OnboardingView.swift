@@ -202,8 +202,21 @@ struct OnboardingView: View {
         if let cert = selectedCert {
             savedCertRaw = cert.rawIdentifier
         }
-        savedNotifPref = notifChoice ?? false
+        let optedIn = notifChoice ?? false
+        savedNotifPref = optedIn
         hasCompleted = true
+
+        if optedIn {
+            Task {
+                let granted = await NotificationManager.shared.requestAuthorization()
+                if granted {
+                    await NotificationManager.shared.refreshSchedule()
+                } else {
+                    // User denied at the system prompt — keep our toggle in sync.
+                    UserDefaults.standard.set(false, forKey: OnboardingKey.notificationsEnabled)
+                }
+            }
+        }
     }
 }
 
