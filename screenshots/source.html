@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Certify — App Store Screenshots</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #1a1a1a;
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: auto;
+  }
+  .gallery {
+    display: flex;
+    gap: 32px;
+    padding: 40px;
+    align-items: flex-start;
+  }
+  .frame {
+    flex-shrink: 0;
+    width: 1320px;
+    height: 2868px;
+    border-radius: 60px;
+    overflow: hidden;
+    position: relative;
+    transform: scale(0.32);
+    transform-origin: top left;
+    margin-right: -895px;
+    margin-bottom: -1950px;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+  }
+  .frame-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 140px 90px 100px;
+  }
+  .headline {
+    font-size: 124px;
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -3.5px;
+    text-wrap: balance;
+    margin-bottom: 28px;
+  }
+  .sub {
+    font-size: 52px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    opacity: 0.7;
+    text-wrap: pretty;
+  }
+  .device-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    position: relative;
+  }
+  /* iPhone bezel mock — large for App Store */
+  .device {
+    width: 900px;
+    height: 1850px;
+    border-radius: 120px;
+    background: #0a0a0a;
+    padding: 18px;
+    box-shadow:
+      0 0 0 3px rgba(255,255,255,0.06) inset,
+      0 60px 120px rgba(0,0,0,0.4);
+    position: relative;
+  }
+  .device.tilted { transform: rotate(-3deg) translateY(20px); }
+  .screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 102px;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+  }
+  .island {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 290px;
+    height: 90px;
+    border-radius: 60px;
+    background: #000;
+    z-index: 50;
+  }
+  .statusbar {
+    position: absolute;
+    top: 38px;
+    left: 0; right: 0;
+    z-index: 40;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 90px;
+    font-size: 38px;
+    font-weight: 600;
+  }
+  .statusbar.dark { color: #fff; }
+  .statusbar.light { color: #000; }
+
+  /* Page mocks scaled up — these duplicate the V1 design at hi-res */
+  .page {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    font-family: -apple-system, 'Inter', system-ui, sans-serif;
+  }
+
+  /* Indicator at bottom */
+  .home-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    height: 12px;
+    border-radius: 100px;
+    z-index: 60;
+  }
+
+  /* Floating accents */
+  .accent-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  /* SAVE button */
+  .save-bar {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1000;
+    transform: scale(1);
+  }
+  .save-bar button {
+    background: #5B4BFF;
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(91,75,255,0.4);
+  }
+  .save-bar button + button { margin-left: 8px; }
+  .save-bar .secondary { background: #fff; color: #1a1a1a; }
+</style>
+</head>
+<body>
+
+<div class="gallery" id="gallery"></div>
+
+<div class="save-bar">
+  <button class="secondary" onclick="document.body.classList.toggle('snap')">Snap mode</button>
+</div>
+
+<script>
+// In snap mode, frames are full-size & stacked (one per scroll) — easier to screenshot individually.
+const css = document.createElement('style');
+css.textContent = `
+  body.snap .gallery { flex-direction: column; gap: 60px; padding: 0; background: #1a1a1a; }
+  body.snap .frame { transform: scale(0.5); transform-origin: top center; margin: 0 auto -1434px; }
+`;
+document.head.appendChild(css);
+</script>
+
+<script>
+const FRAMES = [
+  {
+    id: 'home',
+    bg: 'linear-gradient(180deg, #5B4BFF 0%, #3D2FB5 100%)',
+    accents: [
+      { x: '5%',  y: '10%', size: 400, c: '#8B5CF6' },
+      { x: '70%', y: '5%',  size: 500, c: '#7B6BFF' },
+    ],
+    headline: 'Your AWS\nstudy buddy.',
+    sub: 'Realistic practice. Honest scoring. Streaks that actually stick.',
+    color: '#fff',
+    deviceTilt: false,
+  },
+  {
+    id: 'quiz',
+    bg: 'linear-gradient(180deg, #0F172A 0%, #1E293B 100%)',
+    accents: [
+      { x: '60%', y: '8%',  size: 600, c: '#10B981' },
+      { x: '-10%', y: '40%', size: 400, c: '#5B4BFF' },
+    ],
+    headline: 'Real exam\nquestions.',
+    sub: 'Curated by certified architects, with tap-to-reveal explanations.',
+    color: '#fff',
+  },
+  {
+    id: 'feedback',
+    bg: 'linear-gradient(180deg, #16A34A 0%, #047857 100%)',
+    accents: [
+      { x: '70%', y: '10%', size: 450, c: '#10B981' },
+    ],
+    headline: 'Learn the\nmoment you miss.',
+    sub: 'Every wrong answer comes with a why — so it sticks the next time.',
+    color: '#fff',
+  },
+  {
+    id: 'result',
+    bg: 'linear-gradient(180deg, #FBBF24 0%, #F59E0B 100%)',
+    accents: [
+      { x: '5%', y: '15%', size: 400, c: '#FCD34D' },
+    ],
+    headline: 'See your\nreadiness.',
+    sub: 'Score breakdown by domain so you know exactly what to study next.',
+    color: '#1a1a1a',
+  },
+  {
+    id: 'history',
+    bg: 'linear-gradient(180deg, #EC4899 0%, #BE185D 100%)',
+    accents: [
+      { x: '60%', y: '60%', size: 500, c: '#F472B6' },
+    ],
+    headline: 'Track every\nstreak.',
+    sub: 'Daily practice, weekly trends, and a clear path to exam day.',
+    color: '#fff',
+  },
+];
+
+document.title = 'Certify — App Store Screenshots';
+document.getElementById('gallery').innerHTML = FRAMES.map((f, i) => `
+  <div class="frame" id="frame-${i}" style="background: ${f.bg}">
+    ${(f.accents||[]).map(a => `<div class="accent-blob" style="left:${a.x};top:${a.y};width:${a.size}px;height:${a.size}px;background:${a.c}"></div>`).join('')}
+    <div class="frame-inner">
+      <div class="headline" style="color:${f.color}">${f.headline.replace(/\n/g, '<br/>')}</div>
+      <div class="sub" style="color:${f.color}">${f.sub}</div>
+      <div class="device-wrap">
+        <div class="device ${f.deviceTilt ? 'tilted' : ''}">
+          <div class="screen" id="screen-${f.id}"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+`).join('');
+
+// Now render the screen mocks
+function makeScreen(id) {
+  const root = document.getElementById('screen-' + id);
+  if (id === 'home') root.innerHTML = renderHome();
+  else if (id === 'quiz') root.innerHTML = renderQuiz();
+  else if (id === 'feedback') root.innerHTML = renderFeedback();
+  else if (id === 'result') root.innerHTML = renderResult();
+  else if (id === 'history') root.innerHTML = renderHistory();
+}
+
+// Hi-res screen renderers — match V1 design.
+// Note: phone screen is 864×1814 (after padding) — design at this scale.
+function statusbar(dark = false) {
+  return `
+    <div class="island"></div>
+    <div class="statusbar ${dark ? 'dark' : 'light'}">
+      <div>9:41</div>
+      <div style="display:flex;gap:14px;align-items:center;">
+        <svg width="44" height="32" viewBox="0 0 44 32"><rect x="2" y="22" width="6" height="8" rx="1" fill="currentColor"/><rect x="11" y="16" width="6" height="14" rx="1" fill="currentColor"/><rect x="20" y="9" width="6" height="21" rx="1" fill="currentColor"/><rect x="29" y="2" width="6" height="28" rx="1" fill="currentColor"/></svg>
+        <svg width="50" height="32" viewBox="0 0 50 32" fill="none"><rect x="2" y="6" width="42" height="20" rx="6" stroke="currentColor" stroke-width="2.5"/><rect x="6" y="10" width="32" height="12" rx="2" fill="currentColor"/><rect x="46" y="12" width="3" height="8" rx="1.5" fill="currentColor"/></svg>
+      </div>
+    </div>
+  `;
+}
+
+function renderHome() {
+  return `
+    ${statusbar(false)}
+    <div class="page" style="background: linear-gradient(180deg, #EDEAFF 0%, #F5F4FB 240px, #F5F4FB 100%);">
+      <div style="padding: 180px 56px 80px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:64px;height:64px;border-radius:18px;background:#5B4BFF;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:32px;">C</div>
+            <span style="font-size:36px;font-weight:700;color:#15123B;">Certify</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.7);border:2px solid rgba(21,18,59,0.08);padding:12px 22px;border-radius:999px;">
+            <span style="color:#F59E0B;font-size:24px;">●</span>
+            <span style="font-size:30px;font-weight:800;color:#15123B;font-variant-numeric:tabular-nums;">12</span>
+            <span style="font-size:26px;color:#6E6B8E;font-weight:600;">day streak</span>
+          </div>
+        </div>
+        <div style="font-size:32px;color:#6E6B8E;margin-bottom:10px;">Good morning, Alex</div>
+        <div style="font-size:62px;font-weight:800;color:#15123B;letter-spacing:-1.5px;line-height:1.05;margin-bottom:48px;">
+          Ready for your<br/>AWS Cloud<br/>Practitioner?
+        </div>
+
+        <!-- Cert card -->
+        <div style="background:#fff;border-radius:32px;padding:32px;border:2px solid rgba(21,18,59,0.08);display:flex;align-items:center;gap:28px;margin-bottom:28px;">
+          <div style="width:108px;height:108px;border-radius:24px;background:linear-gradient(135deg,#FF9900,#cc7a00);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:28px;">aws</div>
+          <div style="flex:1">
+            <div style="font-size:36px;font-weight:700;color:#15123B;">Cloud Practitioner</div>
+            <div style="font-size:28px;color:#6E6B8E;margin-top:6px;">CLF-C02 · 600 questions</div>
+          </div>
+        </div>
+
+        <!-- Readiness -->
+        <div style="background:#fff;border-radius:32px;padding:36px;border:2px solid rgba(21,18,59,0.08);margin-bottom:36px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+            <div style="font-size:24px;color:#6E6B8E;font-weight:800;letter-spacing:1.5px;">READINESS</div>
+            <span style="padding:8px 22px;border-radius:999px;background:#DCFCE7;color:#16A34A;font-size:22px;font-weight:800;letter-spacing:0.5px;">ON TRACK</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:32px;">
+            <svg width="140" height="140" style="transform:rotate(-90deg);">
+              <circle cx="70" cy="70" r="60" stroke="rgba(21,18,59,0.08)" stroke-width="14" fill="none"/>
+              <circle cx="70" cy="70" r="60" stroke="#5B4BFF" stroke-width="14" fill="none" stroke-dasharray="377" stroke-dashoffset="83" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <div style="font-size:78px;font-weight:800;color:#15123B;letter-spacing:-2px;line-height:1;font-variant-numeric:tabular-nums;">78%</div>
+              <div style="font-size:26px;color:#6E6B8E;margin-top:6px;">Last 5 quizzes</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Practice list -->
+        <div style="font-size:24px;color:#6E6B8E;font-weight:800;letter-spacing:1.5px;margin-bottom:18px;padding-left:10px;">PRACTICE</div>
+        <div style="background:#fff;border-radius:32px;border:2px solid rgba(21,18,59,0.08);overflow:hidden;">
+          ${[
+            { t: 'Full Quiz', s: '65 Questions · 90 min', bg: '#EDEAFF', c: '#5B4BFF' },
+            { t: 'Quick Quiz', s: '20 Questions · 12 min', bg: '#DCFCE7', c: '#16A34A' },
+            { t: 'Domain Drill', s: 'Focused practice by topic', bg: '#FEF3C7', c: '#F59E0B', last: true },
+          ].map((r, i) => `
+            <div style="display:flex;align-items:center;padding:30px 32px;${r.last ? '' : 'border-bottom:2px solid rgba(21,18,59,0.06);'}">
+              <div style="width:78px;height:78px;border-radius:22px;background:${r.bg};color:${r.c};display:flex;align-items:center;justify-content:center;font-size:36px;margin-right:26px;">◆</div>
+              <div style="flex:1">
+                <div style="font-size:32px;font-weight:600;color:#15123B;">${r.t}</div>
+                <div style="font-size:24px;color:#6E6B8E;margin-top:4px;">${r.s}</div>
+              </div>
+              <svg width="20" height="35"><path d="M2 2 L18 17.5 L2 33" stroke="#6E6B8E" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      <div class="home-indicator" style="background:rgba(0,0,0,0.4);"></div>
+    </div>
+  `;
+}
+
+function renderQuiz() {
+  return `
+    ${statusbar(false)}
+    <div class="page" style="background:#F5F4FB;">
+      <div style="padding:160px 56px 60px;">
+        <div style="display:flex;align-items:center;gap:24px;margin-bottom:36px;">
+          <div style="font-size:30px;color:#6E6B8E;font-weight:600;">← Exit</div>
+          <div style="flex:1;text-align:center;font-size:30px;font-weight:700;color:#6E6B8E;font-variant-numeric:tabular-nums;">3 / 20</div>
+          <svg width="36" height="42" viewBox="0 0 14 16" fill="none"><path d="M2 1.5h10v13l-5-3.5L2 14.5V1.5z" stroke="#6E6B8E" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="display:flex;align-items:center;gap:24px;margin-bottom:60px;">
+          <div style="flex:1;height:10px;background:rgba(21,18,59,0.08);border-radius:5px;overflow:hidden;">
+            <div style="width:15%;height:100%;background:#5B4BFF;border-radius:5px;"></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:30px;font-weight:800;color:#15123B;font-variant-numeric:tabular-nums;">⏱ 11:42</div>
+        </div>
+
+        <div style="display:flex;gap:14px;margin-bottom:28px;">
+          <span style="font-size:22px;font-weight:800;padding:8px 20px;border-radius:999px;background:#EDEAFF;color:#5B4BFF;letter-spacing:0.6px;">COMPUTE</span>
+          <span style="font-size:22px;font-weight:800;padding:8px 20px;border-radius:999px;background:rgba(21,18,59,0.08);color:#6E6B8E;letter-spacing:0.6px;">MEDIUM</span>
+        </div>
+
+        <div style="font-size:46px;font-weight:600;color:#15123B;line-height:1.3;letter-spacing:-0.5px;margin-bottom:48px;text-wrap:pretty;">
+          Which of the following is NOT a benefit of using AWS Lambda?
+        </div>
+
+        ${[
+          { l: 'A', t: 'Lambda runs code without provisioning or managing servers.', state: 'idle' },
+          { l: 'B', t: 'Lambda provides resizable compute capacity in the cloud.', state: 'picked' },
+          { l: 'C', t: 'There is no charge when AWS Lambda code is not running.', state: 'idle' },
+          { l: 'D', t: 'Lambda can be called directly from any mobile app.', state: 'idle' },
+        ].map(o => {
+          const sel = o.state === 'picked';
+          return `
+            <div style="background:${sel ? '#EDEAFF' : '#fff'};border:4px solid ${sel ? '#5B4BFF' : 'rgba(21,18,59,0.08)'};border-radius:32px;padding:30px 32px;display:flex;gap:24px;margin-bottom:18px;align-items:flex-start;">
+              <div style="width:60px;height:60px;border-radius:14px;background:${sel ? '#5B4BFF' : 'transparent'};border:3px solid ${sel ? '#5B4BFF' : 'rgba(21,18,59,0.18)'};color:${sel ? '#fff' : '#15123B'};display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;flex-shrink:0;">${o.l}</div>
+              <div style="flex:1;font-size:32px;color:#15123B;font-weight:500;line-height:1.4;padding-top:8px;">${o.t}</div>
+            </div>
+          `;
+        }).join('')}
+
+        <button style="width:100%;padding:36px;border-radius:32px;background:#5B4BFF;color:#fff;border:none;font-size:36px;font-weight:700;margin-top:30px;font-family:inherit;">Check Answer</button>
+      </div>
+      <div class="home-indicator" style="background:rgba(0,0,0,0.4);"></div>
+    </div>
+  `;
+}
+
+function renderFeedback() {
+  return `
+    ${statusbar(false)}
+    <div class="page" style="background:#F5F4FB;">
+      <div style="padding:160px 56px 60px;">
+        <div style="display:flex;align-items:center;gap:24px;margin-bottom:36px;">
+          <div style="font-size:30px;color:#6E6B8E;font-weight:600;">← Exit</div>
+          <div style="flex:1;text-align:center;font-size:30px;font-weight:700;color:#6E6B8E;font-variant-numeric:tabular-nums;">3 / 20</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:24px;margin-bottom:60px;">
+          <div style="flex:1;height:10px;background:rgba(21,18,59,0.08);border-radius:5px;overflow:hidden;">
+            <div style="width:15%;height:100%;background:#5B4BFF;border-radius:5px;"></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:30px;font-weight:800;color:#15123B;font-variant-numeric:tabular-nums;">⏱ 11:38</div>
+        </div>
+
+        <div style="font-size:42px;font-weight:600;color:#15123B;line-height:1.3;letter-spacing:-0.4px;margin-bottom:40px;">
+          Which of the following is NOT a benefit of using AWS Lambda?
+        </div>
+
+        ${[
+          { l: 'A', t: 'Lambda runs code without provisioning or managing servers.', state: 'idle' },
+          { l: '✕', t: 'Lambda provides resizable compute capacity in the cloud.', state: 'wrong' },
+          { l: '✓', t: 'There is no charge when AWS Lambda code is not running.', state: 'right' },
+          { l: 'D', t: 'Lambda can be called directly from any mobile app.', state: 'idle' },
+        ].map(o => {
+          let bg = '#fff', brd = 'rgba(21,18,59,0.08)', badgeBg = 'transparent', badgeColor = '#15123B', badgeBrd = 'rgba(21,18,59,0.18)';
+          if (o.state === 'right') { bg = '#F0FDF4'; brd = '#16A34A'; badgeBg = '#16A34A'; badgeColor = '#fff'; badgeBrd = '#16A34A'; }
+          if (o.state === 'wrong') { bg = '#FEF2F2'; brd = '#E11D48'; badgeBg = '#E11D48'; badgeColor = '#fff'; badgeBrd = '#E11D48'; }
+          return `
+            <div style="background:${bg};border:4px solid ${brd};border-radius:32px;padding:26px 30px;display:flex;gap:24px;margin-bottom:16px;align-items:flex-start;">
+              <div style="width:56px;height:56px;border-radius:14px;background:${badgeBg};border:3px solid ${badgeBrd};color:${badgeColor};display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;flex-shrink:0;">${o.l}</div>
+              <div style="flex:1;font-size:30px;color:#15123B;font-weight:500;line-height:1.4;padding-top:6px;">${o.t}</div>
+            </div>
+          `;
+        }).join('')}
+
+        <!-- Explanation panel -->
+        <div style="margin-top:30px;padding:32px;border-radius:28px;background:#F0FDF4;border:3px solid rgba(22,163,74,0.3);">
+          <div style="font-size:24px;font-weight:800;letter-spacing:1px;color:#16A34A;margin-bottom:14px;">✓ CORRECT</div>
+          <div style="font-size:30px;color:#15123B;line-height:1.5;text-wrap:pretty;">
+            EC2 (not Lambda) is the service that "provides resizable compute capacity in the cloud." Lambda is fully serverless: you pay per invocation, with no charge when idle.
+          </div>
+        </div>
+
+        <button style="width:100%;padding:36px;border-radius:32px;background:#5B4BFF;color:#fff;border:none;font-size:36px;font-weight:700;margin-top:30px;font-family:inherit;">Next Question →</button>
+      </div>
+      <div class="home-indicator" style="background:rgba(0,0,0,0.4);"></div>
+    </div>
+  `;
+}
+
+function renderResult() {
+  return `
+    ${statusbar(false)}
+    <div class="page" style="background:#F5F4FB;">
+      <div style="padding:200px 56px 80px;height:100%;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="font-size:30px;font-weight:800;letter-spacing:3px;color:#16A34A;margin-bottom:36px;">YOU PASSED</div>
+
+        <svg width="450" height="450" style="margin-bottom:50px;">
+          <circle cx="225" cy="225" r="195" stroke="rgba(21,18,59,0.08)" stroke-width="32" fill="none"/>
+          <circle cx="225" cy="225" r="195" stroke="#16A34A" stroke-width="32" fill="none" stroke-dasharray="1225" stroke-dashoffset="184" stroke-linecap="round" transform="rotate(-90 225 225)"/>
+          <text x="225" y="218" text-anchor="middle" dominant-baseline="middle" style="font-size:140px;font-weight:800;fill:#15123B;letter-spacing:-6px;font-family:inherit;">85%</text>
+          <text x="225" y="298" text-anchor="middle" style="font-size:30px;fill:#6E6B8E;font-weight:600;letter-spacing:1px;font-family:inherit;">SCORE</text>
+        </svg>
+
+        <div style="font-size:34px;color:#6E6B8E;margin-bottom:6px;font-variant-numeric:tabular-nums;">17 of 20 correct</div>
+        <div style="font-size:26px;color:#6E6B8E;font-weight:600;margin-bottom:60px;">Pass mark: 75% · Time: 09:42</div>
+
+        <div style="width:100%;background:#fff;border-radius:32px;border:2px solid rgba(21,18,59,0.08);padding:32px;text-align:left;">
+          <div style="font-size:24px;color:#6E6B8E;font-weight:800;letter-spacing:1.2px;margin-bottom:24px;">BY DOMAIN</div>
+          ${[
+            { name: 'Compute', pct: 100, c: '#16A34A' },
+            { name: 'Storage', pct: 90, c: '#16A34A' },
+            { name: 'Security', pct: 75, c: '#16A34A' },
+            { name: 'Pricing', pct: 60, c: '#F59E0B' },
+            { name: 'Networking', pct: 50, c: '#F59E0B' },
+          ].map(d => `
+            <div style="display:flex;align-items:center;gap:24px;padding:14px 0;">
+              <div style="font-size:30px;color:#15123B;width:220px;font-weight:500;">${d.name}</div>
+              <div style="flex:1;height:10px;background:rgba(21,18,59,0.08);border-radius:5px;overflow:hidden;">
+                <div style="width:${d.pct}%;height:100%;background:${d.c};border-radius:5px;"></div>
+              </div>
+              <div style="font-size:26px;color:#6E6B8E;width:80px;text-align:right;font-variant-numeric:tabular-nums;font-weight:700;">${d.pct}%</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      <div class="home-indicator" style="background:rgba(0,0,0,0.4);"></div>
+    </div>
+  `;
+}
+
+function renderHistory() {
+  const sessions = [
+    { date: 'Today · 11:42', pct: 95, q: 20, time: '08:14', mode: 'Quick' },
+    { date: 'Yesterday · 19:08', pct: 78, q: 65, time: '74:32', mode: 'Full' },
+    { date: 'Apr 23 · 14:17', pct: 80, q: 20, time: '10:17', mode: 'Quick' },
+    { date: 'Apr 22 · 09:55', pct: 65, q: 20, time: '11:42', mode: 'Quick' },
+    { date: 'Apr 21 · 21:30', pct: 72, q: 65, time: '82:11', mode: 'Full' },
+  ];
+  return `
+    ${statusbar(false)}
+    <div class="page" style="background:#F5F4FB;">
+      <div style="padding:160px 56px 60px;">
+        <div style="font-size:30px;color:#6E6B8E;font-weight:600;margin-bottom:30px;">← Home</div>
+        <div style="font-size:62px;font-weight:800;color:#15123B;letter-spacing:-1.2px;">History</div>
+        <div style="font-size:28px;color:#6E6B8E;margin-top:8px;margin-bottom:40px;">42 sessions · Avg 75%</div>
+
+        <!-- Trend chart -->
+        <div style="background:#fff;border-radius:32px;border:2px solid rgba(21,18,59,0.08);padding:34px;margin-bottom:36px;">
+          <div style="font-size:24px;color:#6E6B8E;font-weight:800;letter-spacing:1.2px;margin-bottom:24px;">SCORE TREND</div>
+          <svg viewBox="0 0 700 200" style="width:100%;height:260px;" preserveAspectRatio="none">
+            <line x1="0" y1="50" x2="700" y2="50" stroke="rgba(21,18,59,0.08)" stroke-dasharray="5 6" stroke-width="2"/>
+            <text x="0" y="42" style="font-size:20px;fill:#6E6B8E;font-weight:600;font-family:inherit;">75%</text>
+            <polyline points="20,160 160,90 300,108 440,80 580,40 680,55" fill="none" stroke="#5B4BFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            ${[ [20,160,'#E11D48'], [160,90,'#16A34A'], [300,108,'#16A34A'], [440,80,'#16A34A'], [580,40,'#16A34A'], [680,55,'#16A34A'] ].map(p => `<circle cx="${p[0]}" cy="${p[1]}" r="10" fill="${p[2]}" stroke="#fff" stroke-width="4"/>`).join('')}
+          </svg>
+        </div>
+
+        ${sessions.map(s => {
+          const passed = s.pct >= 75;
+          const col = passed ? '#16A34A' : '#E11D48';
+          const bg = passed ? '#DCFCE7' : '#FEE2E2';
+          return `
+            <div style="background:#fff;border-radius:24px;padding:28px;border:2px solid rgba(21,18,59,0.08);border-left:8px solid ${col};display:flex;align-items:center;gap:28px;margin-bottom:18px;">
+              <div style="width:96px;height:96px;border-radius:22px;background:${bg};color:${col};display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-1px;">${s.pct}</div>
+              <div style="flex:1;">
+                <div style="font-size:32px;font-weight:600;color:#15123B;">${s.mode} Quiz</div>
+                <div style="font-size:24px;color:#6E6B8E;margin-top:4px;">${s.date} · ${s.q} Q · ${s.time}</div>
+              </div>
+              <svg width="20" height="35"><path d="M2 2 L18 17.5 L2 33" stroke="#6E6B8E" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+            </div>
+          `;
+        }).join('')}
+      </div>
+      <div class="home-indicator" style="background:rgba(0,0,0,0.4);"></div>
+    </div>
+  `;
+}
+
+FRAMES.forEach(f => makeScreen(f.id));
+</script>
+</body>
+</html>
