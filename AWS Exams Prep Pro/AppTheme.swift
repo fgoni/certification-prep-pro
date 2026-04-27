@@ -182,6 +182,84 @@ enum AppTheme {
     }
 }
 
+// MARK: - V1 Refined design tokens
+extension AppTheme {
+    enum V1 {
+        enum Colors {
+            static let accent = Color(hex: "#5B4BFF")
+            static let accentSoft = Color.adaptive(
+                light: Color(hex: "#EDEAFF"),
+                dark: Color(red: 91/255, green: 75/255, blue: 255/255, opacity: 0.18)
+            )
+            static let bg = Color.adaptive(
+                light: Color(hex: "#F5F4FB"),
+                dark: Color(hex: "#0E0B2A")
+            )
+            static let bgHero = Color.adaptive(
+                light: Color(hex: "#EDEAFF"),
+                dark: Color(hex: "#1F1858")
+            )
+            static let card = Color.adaptive(
+                light: Color(hex: "#FFFFFF"),
+                dark: Color(hex: "#1A1740")
+            )
+            static let ink = Color.adaptive(
+                light: Color(hex: "#15123B"),
+                dark: Color(hex: "#FFFFFF")
+            )
+            static let muted = Color.adaptive(
+                light: Color(hex: "#6E6B8E"),
+                dark: Color.white.opacity(0.6)
+            )
+            static let hair = Color.adaptive(
+                light: Color(red: 21/255, green: 18/255, blue: 59/255, opacity: 0.08),
+                dark: Color.white.opacity(0.08)
+            )
+            static let hairStrong = Color.adaptive(
+                light: Color(red: 21/255, green: 18/255, blue: 59/255, opacity: 0.14),
+                dark: Color.white.opacity(0.16)
+            )
+            static let success = Color(hex: "#16A34A")
+            static let successSoft = Color.adaptive(
+                light: Color(hex: "#DCFCE7"),
+                dark: Color(red: 34/255, green: 197/255, blue: 94/255, opacity: 0.18)
+            )
+            static let danger = Color(hex: "#E11D48")
+            static let dangerSoft = Color.adaptive(
+                light: Color(hex: "#FEF2F2"),
+                dark: Color(red: 225/255, green: 29/255, blue: 72/255, opacity: 0.12)
+            )
+            static let warn = Color(hex: "#F59E0B")
+        }
+
+        enum Metrics {
+            static let pad: CGFloat = 18
+            static let gap: CGFloat = 10
+            static let row: CGFloat = 16
+            static let radiusSm: CGFloat = 12
+            static let radius: CGFloat = 14
+            static let radiusLg: CGFloat = 16
+        }
+
+        enum Typography {
+            static let display = Font.system(size: 22, weight: .bold)
+            static let displayLarge = Font.system(size: 24, weight: .bold)
+            static let scoreNumber = Font.system(size: 48, weight: .heavy)
+            static let scoreMedium = Font.system(size: 26, weight: .heavy)
+            static let questionTitle = Font.system(size: 17, weight: .semibold)
+            static let body = Font.system(size: 14, weight: .regular)
+            static let bodyEmphasis = Font.system(size: 14, weight: .semibold)
+            static let label = Font.system(size: 13, weight: .regular)
+            static let small = Font.system(size: 12, weight: .regular)
+            static let smallEmphasis = Font.system(size: 12, weight: .semibold)
+            static let caption = Font.system(size: 11, weight: .regular)
+            static let captionEmphasis = Font.system(size: 11, weight: .bold)
+            static let micro = Font.system(size: 10, weight: .bold)
+            static let actionLabel = Font.system(size: 15, weight: .bold)
+        }
+    }
+}
+
 // MARK: - Bundle Extension
 extension Bundle {
     var appVersion: String {

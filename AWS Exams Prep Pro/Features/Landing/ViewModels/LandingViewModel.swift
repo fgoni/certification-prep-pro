@@ -27,6 +27,12 @@ class LandingViewModel: ObservableObject {
     ) {
         self.quizLimitProvider = quizLimitProvider
         self.adProvider = adProvider
+
+        let savedRaw = UserDefaults.standard.string(forKey: OnboardingKey.selectedCertRaw) ?? ""
+        if let cert = QuestionSet.from(rawIdentifier: savedRaw) {
+            self.selectedQuestionSet = cert
+        }
+
         loadInitialQuestionSet()
     }
 

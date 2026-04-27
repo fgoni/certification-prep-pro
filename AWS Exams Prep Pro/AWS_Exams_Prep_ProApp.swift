@@ -15,6 +15,7 @@ import FirebaseCore
 @main
 struct AWS_Exams_Prep_ProApp: App {
     @StateObject private var themeManager = ThemeManager()
+    @AppStorage(OnboardingKey.hasCompleted) private var hasCompletedOnboarding: Bool = false
 
     init() {
         // Initialize Google Mobile Ads SDK
@@ -38,9 +39,16 @@ struct AWS_Exams_Prep_ProApp: App {
 
     var body: some Scene {
         WindowGroup {
-            LandingScreenView()
-                .environmentObject(themeManager)
-                .preferredColorScheme(themeManager.colorScheme)
+            Group {
+                if hasCompletedOnboarding {
+                    LandingScreenView()
+                } else {
+                    OnboardingView()
+                }
+            }
+            .environmentObject(themeManager)
+            .preferredColorScheme(themeManager.colorScheme)
+            .animation(.easeInOut(duration: 0.3), value: hasCompletedOnboarding)
         }
         .modelContainer(sharedModelContainer)
     }
